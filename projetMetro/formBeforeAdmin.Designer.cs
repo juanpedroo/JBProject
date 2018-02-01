@@ -84,6 +84,7 @@
             // 
             // mTBusername
             // 
+            this.mTBusername.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 

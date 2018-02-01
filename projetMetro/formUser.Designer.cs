@@ -686,7 +686,7 @@
             this.Name = "formUser";
             this.Resizable = false;
             this.Load += new System.EventHandler(this.formUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
+           ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
