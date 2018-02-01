@@ -66,7 +66,6 @@
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
             this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // mLinkReturn
@@ -729,22 +728,12 @@
             this.metroRadioButton2.Text = "Responsable n°2";
             this.metroRadioButton2.UseSelectable = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(495, 172);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 95;
-            this.label1.Text = "BAPTSITE ";
-            // 
             // formAddEleve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(1098, 714);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.metroRadioButton2);
             this.Controls.Add(this.metroRadioButton1);
             this.Controls.Add(this.metroComboBox1);
@@ -830,6 +819,5 @@
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
-        private System.Windows.Forms.Label label1;
     }
 }
