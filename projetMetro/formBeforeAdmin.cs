@@ -31,7 +31,7 @@ namespace projetMetro
             mTBusername.Focus();
         }
 
-        static public string pass;
+        static public string pass = "";
 
         MySqlConnection _Connection = new MySqlConnection("Data Source=projet;Initial Catalog=BDD;UserId=user;Password=");
 

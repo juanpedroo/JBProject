@@ -41,7 +41,6 @@
             this.metroTextBox3 = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBox6 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
@@ -64,7 +63,7 @@
             this.metroTextBox14 = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox15 = new MetroFramework.Controls.MetroTextBox();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
+            this.mRB1 = new MetroFramework.Controls.MetroRadioButton();
             this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
             this.SuspendLayout();
             // 
@@ -283,16 +282,6 @@
             this.metroTextBox5.UseSelectable = true;
             this.metroTextBox5.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox5.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel7.Location = new System.Drawing.Point(517, 7);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(118, 19);
-            this.metroLabel7.TabIndex = 49;
-            this.metroLabel7.Text = "Responsable n°1";
             // 
             // metroTextBox6
             // 
@@ -706,16 +695,16 @@
             this.metroComboBox1.TabIndex = 71;
             this.metroComboBox1.UseSelectable = true;
             // 
-            // metroRadioButton1
+            // mRB1
             // 
-            this.metroRadioButton1.AutoSize = true;
-            this.metroRadioButton1.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
-            this.metroRadioButton1.Location = new System.Drawing.Point(45, 244);
-            this.metroRadioButton1.Name = "metroRadioButton1";
-            this.metroRadioButton1.Size = new System.Drawing.Size(114, 15);
-            this.metroRadioButton1.TabIndex = 93;
-            this.metroRadioButton1.Text = "Responsable n°1";
-            this.metroRadioButton1.UseSelectable = true;
+            this.mRB1.AutoSize = true;
+            this.mRB1.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
+            this.mRB1.Location = new System.Drawing.Point(45, 244);
+            this.mRB1.Name = "mRB1";
+            this.mRB1.Size = new System.Drawing.Size(114, 15);
+            this.mRB1.TabIndex = 93;
+            this.mRB1.Text = "Responsable n°1";
+            this.mRB1.UseSelectable = true;
             // 
             // metroRadioButton2
             // 
@@ -735,7 +724,7 @@
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(1098, 714);
             this.Controls.Add(this.metroRadioButton2);
-            this.Controls.Add(this.metroRadioButton1);
+            this.Controls.Add(this.mRB1);
             this.Controls.Add(this.metroComboBox1);
             this.Controls.Add(this.metroTextBox15);
             this.Controls.Add(this.metroTextBox14);
@@ -758,7 +747,6 @@
             this.Controls.Add(this.metroLabel14);
             this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.metroTextBox6);
-            this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.metroTextBox5);
             this.Controls.Add(this.metroTextBox4);
             this.Controls.Add(this.metroTextBox3);
@@ -794,7 +782,6 @@
         private MetroFramework.Controls.MetroTextBox metroTextBox3;
         private MetroFramework.Controls.MetroTextBox metroTextBox4;
         private MetroFramework.Controls.MetroTextBox metroTextBox5;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroTextBox metroTextBox6;
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroLabel metroLabel9;
@@ -817,7 +804,7 @@
         private MetroFramework.Controls.MetroTextBox metroTextBox14;
         private MetroFramework.Controls.MetroTextBox metroTextBox15;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
+        private MetroFramework.Controls.MetroRadioButton mRB1;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
     }
 }
