@@ -175,6 +175,7 @@
             this.mTileDispEleve.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mTileDispEleve.UseSelectable = true;
             this.mTileDispEleve.UseTileImage = true;
+            this.mTileDispEleve.Click += new System.EventHandler(this.mTileDispEleve_Click);
             // 
             // mTileDelEleve
             // 
@@ -188,6 +189,7 @@
             this.mTileDelEleve.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mTileDelEleve.UseSelectable = true;
             this.mTileDelEleve.UseTileImage = true;
+            this.mTileDelEleve.Click += new System.EventHandler(this.mTileDelEleve_Click);
             // 
             // mTileAddEleve
             // 
