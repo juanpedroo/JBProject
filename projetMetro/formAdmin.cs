@@ -62,5 +62,18 @@ namespace projetMetro
             fAddE.Show();
             this.Close();
         }
+
+        private void mTileDelEleve_Click(object sender, EventArgs e)
+        {
+            formDelEleve fDelE = new formDelEleve();
+            fDelE.Show();
+            
+        }
+
+        private void mTileDispEleve_Click(object sender, EventArgs e)
+        {
+            formDispEleve fDisE = new formDispEleve();
+            fDisE.Show();
+        }
     }
 }

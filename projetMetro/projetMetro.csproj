@@ -89,6 +89,18 @@
     <Compile Include="formBeforeAdmin.Designer.cs">
       <DependentUpon>formBeforeAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="formDelEleve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDelEleve.Designer.cs">
+      <DependentUpon>formDelEleve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formDispEleve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDispEleve.Designer.cs">
+      <DependentUpon>formDispEleve.cs</DependentUpon>
+    </Compile>
     <Compile Include="formHelp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formBeforeAdmin.resx">
       <DependentUpon>formBeforeAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formDelEleve.resx">
+      <DependentUpon>formDelEleve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formDispEleve.resx">
+      <DependentUpon>formDispEleve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formHelp.resx">
       <DependentUpon>formHelp.cs</DependentUpon>
