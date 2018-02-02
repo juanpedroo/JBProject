@@ -21,9 +21,11 @@ namespace projetMetro
 
         private void mLinkReturn_Click(object sender, EventArgs e)
         {
+            
             formMain fMain = new formMain();
             fMain.Show();
-            this.Visible = false;
+            //this.Visible = false;
+            this.Close();
         }
 
         private void formBeforeAdmin_Load(object sender, EventArgs e)
@@ -63,9 +65,11 @@ namespace projetMetro
                     return;
                 }
                 _Connection.Close();
+                this.Hide();
                 formAdmin fAdmin = new formAdmin();
                 fAdmin.Show();
-                this.Visible = false;
+                //this.Visible = false;
+                this.Close();
             }
             else
             {

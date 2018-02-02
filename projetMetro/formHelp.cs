@@ -32,9 +32,11 @@ namespace projetMetro
 
         private void mLinkReturn_Click(object sender, EventArgs e)
         {
+            //this.Hide();
             formMain fMain = new formMain();
             fMain.Show();
-            this.Visible = false;
+            //this.Visible = false;
+            this.Close();
         }
 
         private void mLinkRetry_Click(object sender, EventArgs e)

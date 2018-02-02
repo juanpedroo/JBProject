@@ -17,14 +17,22 @@ namespace projetMetro
         public formAddEleve()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
+            
         }
 
         private void mLinkReturn_Click(object sender, EventArgs e)
         {
+            
             formAdmin fAdmin = new formAdmin();
             fAdmin.Show();
             this.Visible = false;
+            this.Close();
+            
+        }
+
+        private void mBTaddEleve_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

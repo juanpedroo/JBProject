@@ -41,30 +41,38 @@ namespace projetMetro
                 return;
             }
             _Connection.Close();
+            //this.Hide();
             formUser fUser = new formUser();
             fUser.Show();
             this.Visible = false;
+            ///this.Close();
         }
 
         private void mTileAbout_Click(object sender, EventArgs e)
         {
+            
             formAbout fAbout = new formAbout();
             fAbout.Show();
             this.Visible = false;
+            //this.Close();
         }
 
         private void mTileAdmin_Click(object sender, EventArgs e)
         {
+            //this.Hide();
             formBeforeAdmin fBAdmin = new formBeforeAdmin();
             fBAdmin.Show();
             this.Visible = false;
+            //this.Close();
         }
 
         private void mTileHelp_Click(object sender, EventArgs e)
         {
+            //this.Hide();
             formHelp fHelp = new formHelp();
             fHelp.Show();
             this.Visible = false;
+            //this.Close();
         }
     }
 }

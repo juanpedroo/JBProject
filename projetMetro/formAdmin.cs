@@ -44,10 +44,10 @@ namespace projetMetro
 
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-
+                //this.Hide();
                 formMain fMain = new formMain();
                 fMain.Show();
-                this.Visible = false;
+                this.Close();
             }
 
 
@@ -57,9 +57,10 @@ namespace projetMetro
 
         private void mTileAddEleve_Click(object sender, EventArgs e)
         {
+           //  this.Hide();
             formAddEleve fAddE = new formAddEleve();
             fAddE.Show();
-            this.Visible = false;
+            this.Close();
         }
     }
 }

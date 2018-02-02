@@ -80,7 +80,7 @@
             this.panel1.Controls.Add(this.metroLabel1);
             this.panel1.Controls.Add(this.metroTile2);
             this.panel1.Controls.Add(this.metroTile1);
-            this.panel1.Location = new System.Drawing.Point(279, 117);
+            this.panel1.Location = new System.Drawing.Point(355, 114);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(671, 460);
             this.panel1.TabIndex = 5;
