@@ -74,5 +74,17 @@ namespace projetMetro
             formDispEleve fDisE = new formDispEleve();
             fDisE.Show();
         }
+
+        private void metroTile7_Click(object sender, EventArgs e)
+        {
+            formPath fPath = new formPath();
+            fPath.Show();
+        }
+
+        private void formAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formMain fMain = new formMain();
+            fMain.Show();
+        }
     }
 }

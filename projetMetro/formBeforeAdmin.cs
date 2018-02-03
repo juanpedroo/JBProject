@@ -79,5 +79,11 @@ namespace projetMetro
                 mTBusername.Select();
             }
         }
+
+        private void formBeforeAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formMain fMain = new formMain();
+            fMain.Show();
+        }
     }
 }

@@ -83,6 +83,7 @@
             this.Movable = false;
             this.Name = "formHelp";
             this.Resizable = false;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formHelp_FormClosed);
             this.Load += new System.EventHandler(this.formHelp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
             this.ResumeLayout(false);

@@ -20,9 +20,20 @@ namespace projetMetro
 
         private void mLinkReturn_Click(object sender, EventArgs e)
         {
+
+            formMain.fMain.Visible = true;
+            this.Close();
+        }
+
+        private void formAbout_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void formAbout_FormClosed(object sender, FormClosedEventArgs e)
+        {
             formMain fMain = new formMain();
             fMain.Show();
-            this.Visible = false;
         }
     }
 }

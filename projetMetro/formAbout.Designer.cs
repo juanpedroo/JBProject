@@ -54,6 +54,8 @@
             this.Movable = false;
             this.Name = "formAbout";
             this.Resizable = false;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formAbout_FormClosed);
+            this.Load += new System.EventHandler(this.formAbout_Load);
             this.ResumeLayout(false);
 
         }

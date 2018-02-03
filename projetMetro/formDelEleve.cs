@@ -79,7 +79,13 @@ namespace projetMetro
                     {
 
                         MySqlDataReader readerRequete = requete.ExecuteReader();
+                        tbINESuppr.Text = "";
 
+
+                    }
+                    else
+                    {
+                        tbINESuppr.Text = "";
 
                     }
 

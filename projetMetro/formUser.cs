@@ -333,7 +333,7 @@ namespace projetMetro
                 MySqlCommand requete = new MySqlCommand();
                 requete.Connection = _Connection;
                 requete.CommandText = "SELECT numeroINE as INE, nom as Nom, NomSansEspace(nom) as NomSansEspace, PrenomSansAccent(prenom) as PrenomSansAccent, prenom as Prenom, DateSansSlash(dateNaiss) as DateNaiss, classe as Classe, regime as Regime, r1Civilite as civiliteR1, r1Nom as nomR1, r1Prenom as prenomR1, AdresseMinuscule(r1Adresse1) as adresse1R1, AdresseMinuscule(r1Adresse2) as adresse2R1, AdresseMinuscule(r1Adresse3) as adresse3R1, AdresseMinuscule(r1Adresse4) as adresse4R1, r1CodePostal as CPR1, r1Ville as villeR1, r1Pays as paysR1, r1Email as mailR1, NumeroAvec0(r1FixeCom) as fixeComR1, NumeroAvec0(r1Portable) as portableR1, r1Lien as lienR1, r2Civilite as civiliteR2, r2Nom as nomR2, r2Prenom as prenomR2, AdresseMinuscule(r2Adresse1) as adresse1R2, AdresseMinuscule(r2Adresse2) as adresse2R2, AdresseMinuscule(r2Adresse3) as adresse3R2, AdresseMinuscule(r2Adresse4) as adresse4R2, r2CodePostal as CPR2, r2Ville as villeR2, r2Pays as paysR2, r2Email as mailR2, NumeroAvec0(r2FixeCom) as fixeComR2, NumeroAvec0(r2Portable) as portableR2, r2Lien as lienR2 FROM eleve Where numeroINE = @INE";
-                requete.Parameters.Add("@INE", INE);
+                requete.Parameters.AddWithValue("@INE", INE);
                 _Connection.Open();
                 MySqlDataReader readerRequete = requete.ExecuteReader();
 
@@ -458,7 +458,7 @@ namespace projetMetro
                     mLabelPortableR2.Text = portableR2;
                     mLabelResp2.Text = "Responsable 2 : " + responsableReduit2;
 
-                    string chemin = "C:/Users/Baptiste/Desktop/Projet/EDT/Emploi_Du_Temps_" + tabNomSansEspace[0] + "_" + tabPrenomSansAccent[0] + "_" + tabDate[0] + ".pdf";
+                    string chemin = formPath.pdf + "EDT/Emploi_Du_Temps_" + tabNomSansEspace[0] + "_" + tabPrenomSansAccent[0] + "_" + tabDate[0] + ".pdf";
                     axAcroPDF1.LoadFile(chemin);
                     axAcroPDF1.setShowToolbar(false);
                     axAcroPDF1.setShowScrollbars(false);
@@ -468,7 +468,7 @@ namespace projetMetro
                     //DateTime help = new DateTime(2018, 01, 28, 13, 50, 00);
 
                     int i;
-                    FileStream fs = new FileStream(@"C:/Users/Baptiste/Desktop/Projet/editCal/Emploi_Du_Temps_" + tabNomSansEspace[0] + "_" + tabPrenomSansAccent[0] + "_" + tabDate[0] + ".ics", FileMode.Open, FileAccess.Read);
+                    FileStream fs = new FileStream(@""+ formPath.cal +"ical/Emploi_Du_Temps_" + tabNomSansEspace[0] + "_" + tabPrenomSansAccent[0] + "_" + tabDate[0] + ".ics", FileMode.Open, FileAccess.Read);
                     fs.Seek(9, SeekOrigin.Begin);
                     StreamReader sr = new StreamReader(fs);
                     string ical = sr.ReadToEnd();
@@ -534,8 +534,8 @@ namespace projetMetro
                     string dtStart = "DTSTART:" + ouioui[2].ToString("D4") + ouioui[1].ToString("D2") + ouioui[0].ToString("D2") + "T" + ouioui[3].ToString("D2") + 0.ToString("D2") + "00Z";
 
                     //lbTest.Text = dtStart;
-                    String dtTest = "DTSTART:20180522T060000Z";
-                    String dtTest1 = "DTSTART:20170918T090000Z";
+                    //String dtTest = "DTSTART:20180522T060000Z";
+                    //String dtTest1 = "DTSTART:20170918T090000Z";
                     mTileSortie.Text = dtStart;
 
                     int tmp = i;
@@ -628,9 +628,8 @@ namespace projetMetro
                             if ((Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) <= Convert.ToInt32(dtStart.Substring(17, 2))) && (Convert.ToInt32(dtStart.Substring(17, 2)) < Convert.ToInt32(tabDt[z, 1].Substring(15, 2))))
                             {
                                 mTileSortie.Text = "Cours";
-                                SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\743.wav");
-
-                                simpleSound.Play();
+                                //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\743.wav");
+                                //simpleSound.Play();
                             }
 
                         }
@@ -639,8 +638,8 @@ namespace projetMetro
                     if (mTileSortie.Text == "")
                     {
                         mTileSortie.Text = "Pas Cours";
-                        SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\1025.wav");
-                        simpleSound.Play();
+                        //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\1025.wav");
+                        //simpleSound.Play();
                     }
 
                     if (mTileSortie.Text == "Cours")
@@ -793,6 +792,12 @@ namespace projetMetro
         private void mLabelMailR2_MouseHover(object sender, EventArgs e)
         {
             metroToolTip1.Show(" " + mLabelMailR2.Text, mLabelMailR2);
+        }
+
+        private void formUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formMain fMain = new formMain();
+            fMain.Show(); 
         }
     }
 }

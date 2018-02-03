@@ -137,6 +137,7 @@
             this.Name = "formMain";
             this.Padding = new System.Windows.Forms.Padding(27, 78, 27, 26);
             this.Style = MetroFramework.MetroColorStyle.Default;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formMain_FormClosed);
             this.Load += new System.EventHandler(this.formPrincipal_Load);
             this.ResumeLayout(false);
 

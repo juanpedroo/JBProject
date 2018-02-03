@@ -52,5 +52,11 @@ namespace projetMetro
         {
             axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/Projet/testmanuel.pdf");
         }
+
+        private void formHelp_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formMain fMain = new formMain();
+            fMain.Show();
+        }
     }
 }

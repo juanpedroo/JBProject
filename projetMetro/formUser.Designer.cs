@@ -685,8 +685,9 @@
             this.Movable = false;
             this.Name = "formUser";
             this.Resizable = false;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formUser_FormClosed);
             this.Load += new System.EventHandler(this.formUser_Load);
-           ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

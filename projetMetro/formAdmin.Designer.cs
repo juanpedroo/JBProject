@@ -35,7 +35,7 @@
             this.metroTile10 = new MetroFramework.Controls.MetroTile();
             this.metroTile9 = new MetroFramework.Controls.MetroTile();
             this.metroTile8 = new MetroFramework.Controls.MetroTile();
-            this.metroTile7 = new MetroFramework.Controls.MetroTile();
+            this.mTilePath = new MetroFramework.Controls.MetroTile();
             this.metroTile6 = new MetroFramework.Controls.MetroTile();
             this.mTileDispEleve = new MetroFramework.Controls.MetroTile();
             this.mTileDelEleve = new MetroFramework.Controls.MetroTile();
@@ -69,7 +69,7 @@
             this.panel1.Controls.Add(this.metroTile10);
             this.panel1.Controls.Add(this.metroTile9);
             this.panel1.Controls.Add(this.metroTile8);
-            this.panel1.Controls.Add(this.metroTile7);
+            this.panel1.Controls.Add(this.mTilePath);
             this.panel1.Controls.Add(this.metroTile6);
             this.panel1.Controls.Add(this.mTileDispEleve);
             this.panel1.Controls.Add(this.mTileDelEleve);
@@ -137,18 +137,19 @@
             this.metroTile8.UseSelectable = true;
             this.metroTile8.UseTileImage = true;
             // 
-            // metroTile7
+            // mTilePath
             // 
-            this.metroTile7.ActiveControl = null;
-            this.metroTile7.Location = new System.Drawing.Point(139, 26);
-            this.metroTile7.Name = "metroTile7";
-            this.metroTile7.Size = new System.Drawing.Size(236, 130);
-            this.metroTile7.TabIndex = 61;
-            this.metroTile7.Text = "Changer le chemin des ressources";
-            this.metroTile7.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile7.TileImage")));
-            this.metroTile7.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile7.UseSelectable = true;
-            this.metroTile7.UseTileImage = true;
+            this.mTilePath.ActiveControl = null;
+            this.mTilePath.Location = new System.Drawing.Point(139, 26);
+            this.mTilePath.Name = "mTilePath";
+            this.mTilePath.Size = new System.Drawing.Size(236, 130);
+            this.mTilePath.TabIndex = 61;
+            this.mTilePath.Text = "Changer le chemin des ressources";
+            this.mTilePath.TileImage = ((System.Drawing.Image)(resources.GetObject("mTilePath.TileImage")));
+            this.mTilePath.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mTilePath.UseSelectable = true;
+            this.mTilePath.UseTileImage = true;
+            this.mTilePath.Click += new System.EventHandler(this.metroTile7_Click);
             // 
             // metroTile6
             // 
@@ -276,6 +277,7 @@
             this.Movable = false;
             this.Name = "formAdmin";
             this.Resizable = false;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formAdmin_FormClosed);
             this.Load += new System.EventHandler(this.formAdmin_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -290,7 +292,7 @@
         private MetroFramework.Controls.MetroTile metroTile10;
         private MetroFramework.Controls.MetroTile metroTile9;
         private MetroFramework.Controls.MetroTile metroTile8;
-        private MetroFramework.Controls.MetroTile metroTile7;
+        private MetroFramework.Controls.MetroTile mTilePath;
         private MetroFramework.Controls.MetroTile metroTile6;
         private MetroFramework.Controls.MetroTile mTileDispEleve;
         private MetroFramework.Controls.MetroTile mTileDelEleve;

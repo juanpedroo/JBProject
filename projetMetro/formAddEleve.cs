@@ -26,5 +26,10 @@ namespace projetMetro
             fAdmin.Show();
             this.Visible = false;
         }
+
+        private void formAddEleve_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

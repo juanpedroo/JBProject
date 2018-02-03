@@ -763,6 +763,7 @@
             this.Movable = false;
             this.Name = "formAddEleve";
             this.Resizable = false;
+            this.Load += new System.EventHandler(this.formAddEleve_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

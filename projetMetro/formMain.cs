@@ -14,15 +14,18 @@ namespace projetMetro
 {
     public partial class formMain : MetroFramework.Forms.MetroForm
     {
+        public static formMain fMain = new formMain();
         public formMain()
         {
             InitializeComponent();
+            formPath.cal = "C:\\";
+            formPath.pdf = "C:\\";
 
         }
 
         private void formPrincipal_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void mTileUser_Click(object sender, EventArgs e)
@@ -43,7 +46,9 @@ namespace projetMetro
             _Connection.Close();
             formUser fUser = new formUser();
             fUser.Show();
-            this.Visible = false;
+            //this.Visible = false;
+            this.Hide();
+            //this.Close();
         }
 
         private void mTileAbout_Click(object sender, EventArgs e)
@@ -51,6 +56,7 @@ namespace projetMetro
             formAbout fAbout = new formAbout();
             fAbout.Show();
             this.Visible = false;
+
         }
 
         private void mTileAdmin_Click(object sender, EventArgs e)
@@ -65,6 +71,11 @@ namespace projetMetro
             formHelp fHelp = new formHelp();
             fHelp.Show();
             this.Visible = false;
+        }
+
+        private void formMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(1);
         }
     }
 }
