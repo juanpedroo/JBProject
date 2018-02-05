@@ -13,14 +13,13 @@ namespace projetMetro
     
     public partial class formPath : MetroFramework.Forms.MetroForm
     {
-        public static string cal;
+        public static string cal="";
         
-        public static string pdf;
+        public static string pdf="";
 
         public formPath()
         {
             InitializeComponent();
-
         }
         public void ChooseFolderCal()
         {
@@ -34,13 +33,14 @@ namespace projetMetro
         {
             if (folderBrowserDialog2.ShowDialog() == DialogResult.OK)
             {
-                pdf = folderBrowserDialog1.SelectedPath;
+                pdf = folderBrowserDialog2.SelectedPath;
                 metroTextBox2.Text = pdf;
             }
         }
         private void formPath_Load(object sender, EventArgs e)
         {
-            
+            metroTextBox1.Text = Properties.Settings.Default.pathCal;
+            metroTextBox2.Text = Properties.Settings.Default.pathPDF;
         }
 
         private void metroButton2_Click(object sender, EventArgs e)
@@ -61,6 +61,18 @@ namespace projetMetro
         private void metroTextBox2_TextChanged(object sender, EventArgs e)
         {
             pdf = metroTextBox2.Text;
+        }
+
+        private void formPath_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.pathCal = cal;
+            Properties.Settings.Default.pathPDF = pdf;
+            Properties.Settings.Default.Save();
+        }
+
+        private void formPath_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

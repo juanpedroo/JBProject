@@ -151,7 +151,8 @@
             this.Controls.Add(this.metroTextBox1);
             this.Name = "formPath";
             this.Text = "formPath";
-            this.Load += new System.EventHandler(this.formPath_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formPath_FormClosing);
+            this.Load += new System.EventHandler(this.formPath_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

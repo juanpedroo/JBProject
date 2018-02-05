@@ -460,7 +460,7 @@ namespace projetMetro
                     mLabelPortableR2.Text = portableR2;
                     mLabelResp2.Text = "Responsable 2 : " + responsableReduit2;
 
-                    string chemin = formPath.pdf + "EDT/Emploi_Du_Temps_" + tabNomSansEspace[0] + "_" + tabPrenomSansAccent[0] + "_" + tabDate[0] + ".pdf";
+                    string chemin = formPath.pdf + "/Emploi_Du_Temps_" + tabNomSansEspace[0] + "_" + tabPrenomSansAccent[0] + "_" + tabDate[0] + ".pdf";
                     axAcroPDF1.LoadFile(chemin);
                     axAcroPDF1.setShowToolbar(false);
                     axAcroPDF1.setShowScrollbars(false);
@@ -470,7 +470,7 @@ namespace projetMetro
                     //DateTime help = new DateTime(2018, 01, 28, 13, 50, 00);
 
                     int i;
-                    FileStream fs = new FileStream(@""+ formPath.cal +"ical/Emploi_Du_Temps_" + tabNomSansEspace[0] + "_" + tabPrenomSansAccent[0] + "_" + tabDate[0] + ".ics", FileMode.Open, FileAccess.Read);
+                    FileStream fs = new FileStream(@""+ formPath.cal + "/Emploi_Du_Temps_" + tabNomSansEspace[0] + "_" + tabPrenomSansAccent[0] + "_" + tabDate[0] + ".ics", FileMode.Open, FileAccess.Read);
                     fs.Seek(9, SeekOrigin.Begin);
                     StreamReader sr = new StreamReader(fs);
                     string ical = sr.ReadToEnd();

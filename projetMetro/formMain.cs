@@ -18,13 +18,21 @@ namespace projetMetro
         public formMain()
         {
             InitializeComponent();
-            formPath.cal = "C:\\";
-            formPath.pdf = "C:\\";
-
         }
 
         private void formPrincipal_Load(object sender, EventArgs e)
         {
+            if (formPath.cal == "")
+            {
+                formPath.cal = "C:\\cal";
+            }
+            if (formPath.pdf == "")
+            {
+                formPath.pdf = "C:\\pdf";
+            }
+
+            formPath.cal = Properties.Settings.Default.pathCal;
+            formPath.pdf = Properties.Settings.Default.pathPDF;
             
         }
 
