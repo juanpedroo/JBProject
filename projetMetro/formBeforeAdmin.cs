@@ -30,7 +30,7 @@ namespace projetMetro
 
         private void formBeforeAdmin_Load(object sender, EventArgs e)
         {
-            mTBusername.Focus();
+            mTBusername.Select();
         }
 
         static public string pass = "";
@@ -84,10 +84,11 @@ namespace projetMetro
             }
         }
 
-        private void formBeforeAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        /*private void formBeforeAdmin_FormClosed(object sender, FormClosedEventArgs e)
         {
             formMain fMain = new formMain();
             fMain.Show();
         }
+        */
     }
 }

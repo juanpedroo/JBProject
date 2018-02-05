@@ -177,7 +177,7 @@
             this.MinimumSize = new System.Drawing.Size(550, 400);
             this.Name = "formBeforeAdmin";
             this.Resizable = false;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formBeforeAdmin_FormClosed);
+            
             this.Load += new System.EventHandler(this.formBeforeAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
