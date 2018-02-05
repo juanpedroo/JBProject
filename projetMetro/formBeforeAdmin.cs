@@ -30,7 +30,7 @@ namespace projetMetro
 
         private void formBeforeAdmin_Load(object sender, EventArgs e)
         {
-            mTBusername.Focus();
+            mTBusername.Select();
         }
 
         static public string pass = "";
