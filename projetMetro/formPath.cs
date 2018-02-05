@@ -76,5 +76,10 @@ namespace projetMetro
             metroTextBox2.Text = Properties.Settings.Default.pathPDF;
 
         }
+
+        private void mLinkReturn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

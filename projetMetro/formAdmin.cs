@@ -67,20 +67,20 @@ namespace projetMetro
         private void mTileDelEleve_Click(object sender, EventArgs e)
         {
             formDelEleve fDelE = new formDelEleve();
-            fDelE.Show();
+            fDelE.ShowDialog();
             
         }
 
         private void mTileDispEleve_Click(object sender, EventArgs e)
         {
             formDispEleve fDisE = new formDispEleve();
-            fDisE.Show();
+            fDisE.ShowDialog();
         }
 
         private void metroTile7_Click(object sender, EventArgs e)
         {
             formPath fPath = new formPath();
-            fPath.Show();
+            fPath.ShowDialog();
         }
 
         private void formAdmin_FormClosed(object sender, FormClosedEventArgs e)
