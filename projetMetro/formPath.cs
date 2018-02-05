@@ -72,6 +72,8 @@ namespace projetMetro
 
         private void formPath_Load_1(object sender, EventArgs e)
         {
+            metroTextBox1.Text = Properties.Settings.Default.pathCal;
+            metroTextBox2.Text = Properties.Settings.Default.pathPDF;
 
         }
     }

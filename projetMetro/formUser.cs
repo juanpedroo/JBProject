@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MetroFramework;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace projetMetro
         private void formUser_Load(object sender, EventArgs e)
         {
             mTBine.Select();
+            formPath.cal = Properties.Settings.Default.pathCal;
+            formPath.pdf = Properties.Settings.Default.pathPDF;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -459,7 +462,6 @@ namespace projetMetro
                     mLabelFixeR2.Text = numFixeR2;
                     mLabelPortableR2.Text = portableR2;
                     mLabelResp2.Text = "Responsable 2 : " + responsableReduit2;
-
                     string chemin = formPath.pdf + "/Emploi_Du_Temps_" + tabNomSansEspace[0] + "_" + tabPrenomSansAccent[0] + "_" + tabDate[0] + ".pdf";
                     axAcroPDF1.LoadFile(chemin);
                     axAcroPDF1.setShowToolbar(false);
@@ -468,198 +470,205 @@ namespace projetMetro
 
                     DateTime help = DateTime.Now;
                     //DateTime help = new DateTime(2018, 01, 28, 13, 50, 00);
+                    try {
+                        int i;
 
-                    int i;
-                    FileStream fs = new FileStream(@""+ formPath.cal + "/Emploi_Du_Temps_" + tabNomSansEspace[0] + "_" + tabPrenomSansAccent[0] + "_" + tabDate[0] + ".ics", FileMode.Open, FileAccess.Read);
-                    fs.Seek(9, SeekOrigin.Begin);
-                    StreamReader sr = new StreamReader(fs);
-                    string ical = sr.ReadToEnd();
-                    char[] delim = { '\n' };
-                    string[] lines = ical.Split(delim);
-                    delim[0] = ':';
+                        FileStream fs = new FileStream(@"" + formPath.cal + "/Emploi_Du_Temps_" + tabNomSansEspace[0] + "_" + tabPrenomSansAccent[0] + "_" + tabDate[0] + ".ics", FileMode.Open, FileAccess.Read);
+                        fs.Seek(9, SeekOrigin.Begin);
+                        StreamReader sr = new StreamReader(fs);
+                        string ical = sr.ReadToEnd();
+                        char[] delim = { '\n' };
+                        string[] lines = ical.Split(delim);
+                        delim[0] = ':';
 
-                    for (i = 0; i < lines.Length; i++)
-                    {
-                        if (lines[i].Contains("BEGIN:VEVENT"))
+                        for (i = 0; i < lines.Length; i++)
                         {
-
-                            string[] eventData = new string[8];
-
-                            for (int j = 0; j < 8; j++)
+                            if (lines[i].Contains("BEGIN:VEVENT"))
                             {
-                                eventData[j] = lines[i + j + 1].Split(delim)[1];
-                                //lboxIcal.Items.Add(eventData[j]);
+
+                                string[] eventData = new string[8];
+
+                                for (int j = 0; j < 8; j++)
+                                {
+                                    eventData[j] = lines[i + j + 1].Split(delim)[1];
+                                    //lboxIcal.Items.Add(eventData[j]);
+                                }
+                                i += 10;
                             }
-                            i += 10;
-                        }
 
-
-                    }
-                    sr.Close();
-                    mLabelDate.Text = help.ToString();
-                    string[] split = mLabelDate.Text.Split(new Char[] { '/', '/', ' ', ':' });
-                    int[] ouioui = new int[5];
-                    for (int l = 0; l < 5; l++)
-                    {
-                        ouioui[l] = Convert.ToInt32(split[l]);
-
-                    }
-
-                    ouioui[4] = ouioui[4] + 20;
-                    mTileSortie.Text = Convert.ToString(ouioui[4]);
-
-                    /*
-                    if (TimeZoneInfo.Local.IsDaylightSavingTime(help))
-                    {
-                        ouioui[3] = ouioui[3] - 1;
-                        //lbTest.Text = "été";
-                    }
-                    else
-                    {
-                        ouioui[3] = ouioui[3] - 0;
-                        //lbTest.Text = "hiver";
-                    }
-                    */
-
-                    //lbCpt.Text = Convert.ToString(ouioui[4]);
-                    if (ouioui[4] >= 60)
-                    {
-                        ouioui[3]++;
-                        ouioui[4] = 0;
-                    }
-                    //lbTailleTab.Text = Convert.ToString(ouioui[4]);
-                    for (int k = 0; k < 5; k++)
-                    {
-                        //lboxTest.Items.Add(ouioui[k]);
-                    }
-
-                    string dtStart = "DTSTART:" + ouioui[2].ToString("D4") + ouioui[1].ToString("D2") + ouioui[0].ToString("D2") + "T" + ouioui[3].ToString("D2") + 0.ToString("D2") + "00Z";
-
-                    //lbTest.Text = dtStart;
-                    //String dtTest = "DTSTART:20180522T060000Z";
-                    //String dtTest1 = "DTSTART:20170918T090000Z";
-                    mTileSortie.Text = dtStart;
-
-                    int tmp = i;
-                    mTileSortie.Text = "";
-                    int cpt = 0;
-                    string[,] tabDt = new string[1500, 2];
-                    // Création tableau de DTSTART en colonne 0 et DTEND en colonne 1
-                    for (i = 0; i < tmp; i++)
-                    {
-
-                        if (lines[i].Contains("DTSTART:"))
-                        {
-                            int valSecond = Convert.ToInt32(lines[i].Substring(17, 2));
-                            string first = lines[i].Substring(0, 17);
-                            mLabelDate.Text = first;
-
-                            string second = "";
-                            string third = lines[i].Substring(19, 5);
-                            //labelau.Text = Convert.ToString(valSecond);
-                            valSecond = valSecond + 1;
-
-
-                            int valEnd = Convert.ToInt32(lines[i + 1].Substring(15, 2));
-                            string firstEnd = lines[i + 1].Substring(0, 15);
-                            string secondEnd = "";
-                            string thirdEnd = lines[i + 1].Substring(17, 5);
-                            valEnd = valEnd + 1;
-
-                            if (valSecond < 10)
-                            {
-                                second = Convert.ToString(valSecond);
-                                second = "0" + second;
-                            }
-                            else
-                            {
-                                second = Convert.ToString(valSecond);
-                            }
-                            if (valEnd < 10)
-                            {
-                                secondEnd = Convert.ToString(valEnd);
-                                secondEnd = "0" + secondEnd;
-                            }
-                            else
-                            {
-                                secondEnd = Convert.ToString(valEnd);
-                            }
-                            //labelTest.Text = first + second + third;
-                            //labelau.Text = firstEnd + secondEnd + thirdEnd;
-
-                            lines[i] = first + second + third;
-                            lines[i + 1] = firstEnd + secondEnd + thirdEnd;
-                            tabDt[cpt, 0] = lines[i];
-                            tabDt[cpt, 1] = lines[i + 1];
-
-                            cpt++;
 
                         }
-                        // lb1.Items.Add(tabDt[1, 0]);
-                        //  lb1.Items.Add(tabDt[1, 1]);
-                        // labelDate.Text = tabDt[1, 0];
-                    }
+                        sr.Close();
+                        mLabelDate.Text = help.ToString();
+                        string[] split = mLabelDate.Text.Split(new Char[] { '/', '/', ' ', ':' });
+                        int[] ouioui = new int[5];
+                        for (int l = 0; l < 5; l++)
+                        {
+                            ouioui[l] = Convert.ToInt32(split[l]);
 
+                        }
 
+                        ouioui[4] = ouioui[4] + 20;
+                        mTileSortie.Text = Convert.ToString(ouioui[4]);
 
-
-                    int subTab0 = Convert.ToInt32(dtStart.Substring(17, 2));
-                    //lbTest.Text = Convert.ToString(subTab0);
-                    string subDtStartdate = dtStart.Substring(8, 8);
-                    //MessageBox.Show(tabDt[37, 0].Substring(8,8));
-                    //MessageBox.Show(subDtStartdate + "a"+ "\n" + (tabDt[37, 0].Substring(8, 8))+ "a");
-
-                    mTileSortie.Text = "";
-                    //lbCpt.Text = Convert.ToString(cpt);
-                    for (int z = 0; z < cpt; z++)
-                    {
-
-                        string fax = subDtStartdate;
-                        //= tabDt[i, 0].Substring(8, 8);
-
-                        //MessageBox.Show(Convert.ToString(i));
-                        /*lbDateSubs.Text = subDtStartdate;
-                        LBfax.Items.Add(tabDt[z, 0]);
-                        lbSubtab0.Text = tabDt[0, 0].Substring(17, 2);
-                        lbSubtab1.Text = tabDt[0, 1].Substring(15, 2);
-                        lbSubDtStart.Text = dtStart.Substring(17, 2);
+                        /*
+                        if (TimeZoneInfo.Local.IsDaylightSavingTime(help))
+                        {
+                            ouioui[3] = ouioui[3] - 1;
+                            //lbTest.Text = "été";
+                        }
+                        else
+                        {
+                            ouioui[3] = ouioui[3] - 0;
+                            //lbTest.Text = "hiver";
+                        }
                         */
 
-                        if (subDtStartdate == tabDt[z, 0].Substring(8, 8))
+                        //lbCpt.Text = Convert.ToString(ouioui[4]);
+                        if (ouioui[4] >= 60)
                         {
-                            if ((Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) <= Convert.ToInt32(dtStart.Substring(17, 2))) && (Convert.ToInt32(dtStart.Substring(17, 2)) < Convert.ToInt32(tabDt[z, 1].Substring(15, 2))))
+                            ouioui[3]++;
+                            ouioui[4] = 0;
+                        }
+                        //lbTailleTab.Text = Convert.ToString(ouioui[4]);
+                        for (int k = 0; k < 5; k++)
+                        {
+                            //lboxTest.Items.Add(ouioui[k]);
+                        }
+
+                        string dtStart = "DTSTART:" + ouioui[2].ToString("D4") + ouioui[1].ToString("D2") + ouioui[0].ToString("D2") + "T" + ouioui[3].ToString("D2") + 0.ToString("D2") + "00Z";
+
+                        //lbTest.Text = dtStart;
+                        //String dtTest = "DTSTART:20180522T060000Z";
+                        //String dtTest1 = "DTSTART:20170918T090000Z";
+                        mTileSortie.Text = dtStart;
+
+                        int tmp = i;
+                        mTileSortie.Text = "";
+                        int cpt = 0;
+                        string[,] tabDt = new string[1500, 2];
+                        // Création tableau de DTSTART en colonne 0 et DTEND en colonne 1
+                        for (i = 0; i < tmp; i++)
+                        {
+
+                            if (lines[i].Contains("DTSTART:"))
                             {
-                                mTileSortie.Text = "Cours";
-                                //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\743.wav");
-                                //simpleSound.Play();
+                                int valSecond = Convert.ToInt32(lines[i].Substring(17, 2));
+                                string first = lines[i].Substring(0, 17);
+                                mLabelDate.Text = first;
+
+                                string second = "";
+                                string third = lines[i].Substring(19, 5);
+                                //labelau.Text = Convert.ToString(valSecond);
+                                valSecond = valSecond + 1;
+
+
+                                int valEnd = Convert.ToInt32(lines[i + 1].Substring(15, 2));
+                                string firstEnd = lines[i + 1].Substring(0, 15);
+                                string secondEnd = "";
+                                string thirdEnd = lines[i + 1].Substring(17, 5);
+                                valEnd = valEnd + 1;
+
+                                if (valSecond < 10)
+                                {
+                                    second = Convert.ToString(valSecond);
+                                    second = "0" + second;
+                                }
+                                else
+                                {
+                                    second = Convert.ToString(valSecond);
+                                }
+                                if (valEnd < 10)
+                                {
+                                    secondEnd = Convert.ToString(valEnd);
+                                    secondEnd = "0" + secondEnd;
+                                }
+                                else
+                                {
+                                    secondEnd = Convert.ToString(valEnd);
+                                }
+                                //labelTest.Text = first + second + third;
+                                //labelau.Text = firstEnd + secondEnd + thirdEnd;
+
+                                lines[i] = first + second + third;
+                                lines[i + 1] = firstEnd + secondEnd + thirdEnd;
+                                tabDt[cpt, 0] = lines[i];
+                                tabDt[cpt, 1] = lines[i + 1];
+
+                                cpt++;
+
+                            }
+                            // lb1.Items.Add(tabDt[1, 0]);
+                            //  lb1.Items.Add(tabDt[1, 1]);
+                            // labelDate.Text = tabDt[1, 0];
+                        }
+
+
+
+
+                        int subTab0 = Convert.ToInt32(dtStart.Substring(17, 2));
+                        //lbTest.Text = Convert.ToString(subTab0);
+                        string subDtStartdate = dtStart.Substring(8, 8);
+                        //MessageBox.Show(tabDt[37, 0].Substring(8,8));
+                        //MessageBox.Show(subDtStartdate + "a"+ "\n" + (tabDt[37, 0].Substring(8, 8))+ "a");
+
+                        mTileSortie.Text = "";
+                        //lbCpt.Text = Convert.ToString(cpt);
+                        for (int z = 0; z < cpt; z++)
+                        {
+
+                            string fax = subDtStartdate;
+                            //= tabDt[i, 0].Substring(8, 8);
+
+                            //MessageBox.Show(Convert.ToString(i));
+                            /*lbDateSubs.Text = subDtStartdate;
+                            LBfax.Items.Add(tabDt[z, 0]);
+                            lbSubtab0.Text = tabDt[0, 0].Substring(17, 2);
+                            lbSubtab1.Text = tabDt[0, 1].Substring(15, 2);
+                            lbSubDtStart.Text = dtStart.Substring(17, 2);
+                            */
+
+                            if (subDtStartdate == tabDt[z, 0].Substring(8, 8))
+                            {
+                                if ((Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) <= Convert.ToInt32(dtStart.Substring(17, 2))) && (Convert.ToInt32(dtStart.Substring(17, 2)) < Convert.ToInt32(tabDt[z, 1].Substring(15, 2))))
+                                {
+                                    mTileSortie.Text = "Cours";
+                                    //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\743.wav");
+                                    //simpleSound.Play();
+                                }
+
                             }
 
                         }
+                        if (mTileSortie.Text == "")
+                        {
+                            mTileSortie.Text = "Pas Cours";
+                            //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\1025.wav");
+                            //simpleSound.Play();
+                        }
+
+                        if (mTileSortie.Text == "Cours")
+                        {
+                            //mTileSortie.Font = new Font("Verdana", 24);
+                            mTileSortie.BackColor = Color.Red;
+
+                        }
+                        else
+                        {
+                            //mTileSortie.Font = new Font("Verdana", 24);
+                            mTileSortie.BackColor = Color.Green;
+                        }
+
+
 
                     }
-                    if (mTileSortie.Text == "")
+                    catch
                     {
-                        mTileSortie.Text = "Pas Cours";
-                        //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\1025.wav");
-                        //simpleSound.Play();
+                        MetroMessageBox.Show(this, "Le dossier : " + formPath.cal + " ne contient pas les emplois du temps. \n Veuillez contacter l'administrateur pour régler ce problème !", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
-                    if (mTileSortie.Text == "Cours")
-                    {
-                        //mTileSortie.Font = new Font("Verdana", 24);
-                        mTileSortie.BackColor = Color.Red;
-
-                    }
-                    else
-                    {
-                        //mTileSortie.Font = new Font("Verdana", 24);
-                        mTileSortie.BackColor = Color.Green;
-                    }
-
-
-
                 }
             }
+            
             finally
             {
                 _Connection.Close();
