@@ -21,7 +21,7 @@ namespace projetMetro
         private void mLinkReturn_Click(object sender, EventArgs e)
         {
 
-            formMain.fMain.Visible = true;
+            
             this.Close();
         }
 

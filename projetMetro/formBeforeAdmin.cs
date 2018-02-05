@@ -21,9 +21,9 @@ namespace projetMetro
 
         private void mLinkReturn_Click(object sender, EventArgs e)
         {
-            
             formMain fMain = new formMain();
             fMain.Show();
+
             //this.Visible = false;
             this.Close();
         }
@@ -82,6 +82,11 @@ namespace projetMetro
                 mTBusername.Clear();
                 mTBusername.Select();
             }
+        }
+
+        private void formBeforeAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
         }
     }
 }

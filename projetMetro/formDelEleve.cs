@@ -101,5 +101,10 @@ namespace projetMetro
 
             _Connection.Close();
         }
+
+        private void mLinkReturn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -74,5 +74,10 @@ namespace projetMetro
         {
 
         }
+
+        private void mLinkReturn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

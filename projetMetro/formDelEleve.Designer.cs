@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formDelEleve));
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.tbINESuppr = new MetroFramework.Controls.MetroTextBox();
             this.btSupprEleve = new MetroFramework.Controls.MetroButton();
+            this.mLinkReturn = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -94,15 +96,28 @@
             this.btSupprEleve.UseSelectable = true;
             this.btSupprEleve.Click += new System.EventHandler(this.btSupprEleve_Click);
             // 
+            // mLinkReturn
+            // 
+            this.mLinkReturn.Image = ((System.Drawing.Image)(resources.GetObject("mLinkReturn.Image")));
+            this.mLinkReturn.ImageSize = 32;
+            this.mLinkReturn.Location = new System.Drawing.Point(1, 7);
+            this.mLinkReturn.Name = "mLinkReturn";
+            this.mLinkReturn.Size = new System.Drawing.Size(38, 35);
+            this.mLinkReturn.TabIndex = 4;
+            this.mLinkReturn.UseSelectable = true;
+            this.mLinkReturn.Click += new System.EventHandler(this.mLinkReturn_Click);
+            // 
             // formDelEleve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 430);
+            this.Controls.Add(this.mLinkReturn);
             this.Controls.Add(this.btSupprEleve);
             this.Controls.Add(this.tbINESuppr);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
+            this.Location = new System.Drawing.Point(1, 7);
             this.Name = "formDelEleve";
             this.Load += new System.EventHandler(this.formDelEleve_Load);
             this.ResumeLayout(false);
@@ -116,5 +131,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox tbINESuppr;
         private MetroFramework.Controls.MetroButton btSupprEleve;
+        private MetroFramework.Controls.MetroLink mLinkReturn;
     }
 }

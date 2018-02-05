@@ -307,8 +307,7 @@ namespace projetMetro
         private void mLinkReturn_Click_1(object sender, EventArgs e)
         {
             //this.Hide();
-            formMain fMain = new formMain();
-            fMain.Show();
+            
             //this.Visible = false;
             this.Close();
         }

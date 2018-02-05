@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPath));
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
@@ -36,6 +37,7 @@
             this.btPDF = new MetroFramework.Controls.MetroButton();
             this.btCal = new MetroFramework.Controls.MetroButton();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
+            this.mLinkReturn = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
             // 
             // metroTextBox1
@@ -138,11 +140,23 @@
             this.btCal.UseSelectable = true;
             this.btCal.Click += new System.EventHandler(this.metroButton2_Click);
             // 
+            // mLinkReturn
+            // 
+            this.mLinkReturn.Image = ((System.Drawing.Image)(resources.GetObject("mLinkReturn.Image")));
+            this.mLinkReturn.ImageSize = 32;
+            this.mLinkReturn.Location = new System.Drawing.Point(1, 7);
+            this.mLinkReturn.Name = "mLinkReturn";
+            this.mLinkReturn.Size = new System.Drawing.Size(38, 35);
+            this.mLinkReturn.TabIndex = 6;
+            this.mLinkReturn.UseSelectable = true;
+            this.mLinkReturn.Click += new System.EventHandler(this.mLinkReturn_Click);
+            // 
             // formPath
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 455);
+            this.Controls.Add(this.mLinkReturn);
             this.Controls.Add(this.btCal);
             this.Controls.Add(this.btPDF);
             this.Controls.Add(this.metroLabel2);
@@ -150,7 +164,6 @@
             this.Controls.Add(this.metroTextBox2);
             this.Controls.Add(this.metroTextBox1);
             this.Name = "formPath";
-            this.Text = "formPath";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formPath_FormClosing);
             this.Load += new System.EventHandler(this.formPath_Load_1);
             this.ResumeLayout(false);
@@ -168,5 +181,6 @@
         private MetroFramework.Controls.MetroButton btPDF;
         private MetroFramework.Controls.MetroButton btCal;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
+        private MetroFramework.Controls.MetroLink mLinkReturn;
     }
 }
