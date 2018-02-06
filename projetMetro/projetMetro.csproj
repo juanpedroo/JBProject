@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Eleve.cs" />
     <Compile Include="formAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,11 +99,29 @@
     <Compile Include="formAdmin.Designer.cs">
       <DependentUpon>formAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="formAdminManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdminManual.Designer.cs">
+      <DependentUpon>formAdminManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formBarcode.Designer.cs">
+      <DependentUpon>formBarcode.cs</DependentUpon>
+    </Compile>
     <Compile Include="formBeforeAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formBeforeAdmin.Designer.cs">
       <DependentUpon>formBeforeAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formConvert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formConvert.Designer.cs">
+      <DependentUpon>formConvert.cs</DependentUpon>
     </Compile>
     <Compile Include="formDelEleve.cs">
       <SubType>Form</SubType>
@@ -122,6 +141,12 @@
     <Compile Include="formHelp.Designer.cs">
       <DependentUpon>formHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="formLinkServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formLinkServer.Designer.cs">
+      <DependentUpon>formLinkServer.cs</DependentUpon>
+    </Compile>
     <Compile Include="formMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +158,18 @@
     </Compile>
     <Compile Include="formPath.Designer.cs">
       <DependentUpon>formPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formStats.Designer.cs">
+      <DependentUpon>formStats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formStatus.Designer.cs">
+      <DependentUpon>formStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="formUser.cs">
       <SubType>Form</SubType>
@@ -152,8 +189,17 @@
     <EmbeddedResource Include="formAdmin.resx">
       <DependentUpon>formAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formAdminManual.resx">
+      <DependentUpon>formAdminManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formBarcode.resx">
+      <DependentUpon>formBarcode.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formBeforeAdmin.resx">
       <DependentUpon>formBeforeAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formConvert.resx">
+      <DependentUpon>formConvert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formDelEleve.resx">
       <DependentUpon>formDelEleve.cs</DependentUpon>
@@ -164,11 +210,20 @@
     <EmbeddedResource Include="formHelp.resx">
       <DependentUpon>formHelp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formLinkServer.resx">
+      <DependentUpon>formLinkServer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formMain.resx">
       <DependentUpon>formMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formPath.resx">
       <DependentUpon>formPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formStats.resx">
+      <DependentUpon>formStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formStatus.resx">
+      <DependentUpon>formStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formUser.resx">
       <DependentUpon>formUser.cs</DependentUpon>

@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace projetMetro
 {
-    public partial class formHelp : MetroFramework.Forms.MetroForm
+    public partial class formAdminManual : MetroFramework.Forms.MetroForm
     {
-        public formHelp()
+        public formAdminManual()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -32,32 +32,24 @@ namespace projetMetro
 
         private void mLinkReturn_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-           
-            //this.Visible = false;
             this.Close();
         }
 
         private void mLinkRetry_Click(object sender, EventArgs e)
         {
             clearAxPDF();
-            axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/MetroProjet/manualUser.pdf");
+            axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/MetroProjet/manualAdmin.pdf");
         }
 
-        private void axAcroPDF1_Enter(object sender, EventArgs e)
+        private void formAdminManual_Load(object sender, EventArgs e)
         {
-
+            axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/MetroProjet/manualAdmin.pdf");
         }
 
-        private void formHelp_Load(object sender, EventArgs e)
+        private void formAdminManual_FormClosed(object sender, FormClosedEventArgs e)
         {
-            axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/MetroProjet/manualUser.pdf");
-        }
-
-        private void formHelp_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formMain fMain = new formMain();
-            fMain.Show();
+            formAdmin fAdmin = new formAdmin();
+            fAdmin.Show();
         }
     }
 }
