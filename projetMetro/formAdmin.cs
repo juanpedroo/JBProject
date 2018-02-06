@@ -77,7 +77,7 @@ namespace projetMetro
             fDisE.ShowDialog();
         }
 
-        private void metroTile7_Click(object sender, EventArgs e)
+        private void mTilePath_Click(object sender, EventArgs e)
         {
             formPath fPath = new formPath();
             fPath.ShowDialog();
@@ -89,9 +89,40 @@ namespace projetMetro
             fMain.Show();
         }
 
-        private void metroTilePathBD_Click(object sender, EventArgs e)
+        private void mTileManualAdmin_Click(object sender, EventArgs e)
         {
+            formAdminManual fAManual = new formAdminManual();
+            fAManual.ShowDialog();
+        }
 
+        private void mTileBarcode_Click(object sender, EventArgs e)
+        {
+            formBarcode fBarcode = new formBarcode();
+            fBarcode.ShowDialog();
+        }
+
+        private void mTileConvert_Click(object sender, EventArgs e)
+        {
+            formConvert fConvert = new formConvert();
+            fConvert.ShowDialog();
+        }
+
+        private void mTileStats_Click(object sender, EventArgs e)
+        {
+            formStats fStats = new formStats();
+            fStats.ShowDialog();
+        }
+
+        private void mTileStatut_Click(object sender, EventArgs e)
+        {
+            formStatus fStatus = new formStatus();
+            fStatus.ShowDialog();
+        }
+
+        private void mTileLinkServ_Click(object sender, EventArgs e)
+        {
+            formLinkServer fLinkS = new formLinkServer();
+            fLinkS.ShowDialog();
         }
     }
 }
