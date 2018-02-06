@@ -33,7 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroTile11 = new MetroFramework.Controls.MetroTile();
             this.metroTile10 = new MetroFramework.Controls.MetroTile();
-            this.metroTile9 = new MetroFramework.Controls.MetroTile();
+            this.metroTilePathBD = new MetroFramework.Controls.MetroTile();
             this.metroTile8 = new MetroFramework.Controls.MetroTile();
             this.mTilePath = new MetroFramework.Controls.MetroTile();
             this.metroTile6 = new MetroFramework.Controls.MetroTile();
@@ -62,12 +62,10 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.metroTile11);
             this.panel1.Controls.Add(this.metroTile10);
-            this.panel1.Controls.Add(this.metroTile9);
+            this.panel1.Controls.Add(this.metroTilePathBD);
             this.panel1.Controls.Add(this.metroTile8);
             this.panel1.Controls.Add(this.mTilePath);
             this.panel1.Controls.Add(this.metroTile6);
@@ -80,7 +78,7 @@
             this.panel1.Controls.Add(this.metroLabel1);
             this.panel1.Controls.Add(this.metroTile2);
             this.panel1.Controls.Add(this.metroTile1);
-            this.panel1.Location = new System.Drawing.Point(355, 114);
+            this.panel1.Location = new System.Drawing.Point(222, 120);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(671, 460);
             this.panel1.TabIndex = 5;
@@ -111,18 +109,19 @@
             this.metroTile10.UseSelectable = true;
             this.metroTile10.UseTileImage = true;
             // 
-            // metroTile9
+            // metroTilePathBD
             // 
-            this.metroTile9.ActiveControl = null;
-            this.metroTile9.Location = new System.Drawing.Point(3, 162);
-            this.metroTile9.Name = "metroTile9";
-            this.metroTile9.Size = new System.Drawing.Size(236, 130);
-            this.metroTile9.TabIndex = 63;
-            this.metroTile9.Text = "Modifier l\'adresse serveur";
-            this.metroTile9.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile9.TileImage")));
-            this.metroTile9.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile9.UseSelectable = true;
-            this.metroTile9.UseTileImage = true;
+            this.metroTilePathBD.ActiveControl = null;
+            this.metroTilePathBD.Location = new System.Drawing.Point(3, 162);
+            this.metroTilePathBD.Name = "metroTilePathBD";
+            this.metroTilePathBD.Size = new System.Drawing.Size(236, 130);
+            this.metroTilePathBD.TabIndex = 63;
+            this.metroTilePathBD.Text = "Modifier l\'adresse serveur";
+            this.metroTilePathBD.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTilePathBD.TileImage")));
+            this.metroTilePathBD.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTilePathBD.UseSelectable = true;
+            this.metroTilePathBD.UseTileImage = true;
+            this.metroTilePathBD.Click += new System.EventHandler(this.metroTilePathBD_Click);
             // 
             // metroTile8
             // 
@@ -281,6 +280,7 @@
             this.Load += new System.EventHandler(this.formAdmin_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -290,7 +290,7 @@
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroTile metroTile11;
         private MetroFramework.Controls.MetroTile metroTile10;
-        private MetroFramework.Controls.MetroTile metroTile9;
+        private MetroFramework.Controls.MetroTile metroTilePathBD;
         private MetroFramework.Controls.MetroTile metroTile8;
         private MetroFramework.Controls.MetroTile mTilePath;
         private MetroFramework.Controls.MetroTile metroTile6;
