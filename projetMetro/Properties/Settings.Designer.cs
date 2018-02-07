@@ -46,5 +46,17 @@ namespace projetMetro.Properties {
                 this["pathCal"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int nbEleveTotal {
+            get {
+                return ((int)(this["nbEleveTotal"]));
+            }
+            set {
+                this["nbEleveTotal"] = value;
+            }
+        }
     }
 }

@@ -56,8 +56,7 @@ namespace projetMetro
 
         private void formHelp_FormClosed(object sender, FormClosedEventArgs e)
         {
-            formMain fMain = new formMain();
-            fMain.Show();
+            this.Close();
         }
     }
 }

@@ -43,13 +43,14 @@ namespace projetMetro
 
         private void formAdminManual_Load(object sender, EventArgs e)
         {
+            
             axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/MetroProjet/manualAdmin.pdf");
         }
 
         private void formAdminManual_FormClosed(object sender, FormClosedEventArgs e)
         {
-            formAdmin fAdmin = new formAdmin();
-            fAdmin.Show();
+            clearAxPDF();
+            this.Close();
         }
     }
 }

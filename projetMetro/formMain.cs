@@ -54,8 +54,8 @@ namespace projetMetro
             _Connection.Close();
             //this.Hide();
             formUser fUser = new formUser();
-            fUser.Show();
-            this.Visible = false;
+            fUser.ShowDialog();
+            //this.Visible = false;
             ///this.Close();
         }
 
@@ -63,8 +63,8 @@ namespace projetMetro
         {
             
             formAbout fAbout = new formAbout();
-            fAbout.Show();
-            this.Visible = false;
+            fAbout.ShowDialog();
+            //this.Visible = false;
             //this.Close();
         }
 
@@ -81,8 +81,8 @@ namespace projetMetro
         {
             //this.Hide();
             formHelp fHelp = new formHelp();
-            fHelp.Show();
-            this.Visible = false;
+            fHelp.ShowDialog();
+            //this.Visible = false;
             //this.Close();
         }
 

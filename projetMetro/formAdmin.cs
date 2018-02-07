@@ -39,7 +39,7 @@ namespace projetMetro
 
             // Displays the MessageBox.
 
-            DialogResult result = MetroMessageBox.Show(this, "\n\nVoulez vous vraiment vous déconnecter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+            DialogResult result = MetroMessageBox.Show(this, "\n\nVoulez-vous vraiment vous déconnecter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
             
 
             if (result == System.Windows.Forms.DialogResult.Yes)
