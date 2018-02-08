@@ -46,5 +46,17 @@ namespace projetMetro.Properties {
                 this["pathCal"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
+        public string pathServ {
+            get {
+                return ((string)(this["pathServ"]));
+            }
+            set {
+                this["pathServ"] = value;
+            }
+        }
     }
 }

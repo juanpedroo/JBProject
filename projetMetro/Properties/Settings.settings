@@ -8,5 +8,8 @@
     <Setting Name="pathCal" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\cal</Value>
     </Setting>
+    <Setting Name="pathServ" Type="System.String" Scope="User">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

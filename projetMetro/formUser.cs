@@ -30,6 +30,7 @@ namespace projetMetro
             mTBine.Select();
             formPath.cal = Properties.Settings.Default.pathCal;
             formPath.pdf = Properties.Settings.Default.pathPDF;
+            formLinkServer.serv = Properties.Settings.Default.pathServ;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -333,7 +334,7 @@ namespace projetMetro
                 //unEleve = new eleve(labelINE.Text, labelNomE.Text, labelPrenomE.Text, labelClasse.Text, labelRegime.Text, labelDate.Text);
                 //lesEleves.Add(unEleve);
 
-                _Connection = new MySqlConnection("Database=projet;DataSource=localhost;UserId=user;Password=;");
+                _Connection = new MySqlConnection("Database=projet;DataSource="+ formLinkServer.serv+"; UserId=user;Password=;");
                 MySqlCommand requete = new MySqlCommand();
                 requete.Connection = _Connection;
                 requete.CommandText = "SELECT numeroINE as INE, nom as Nom, NomSansEspace(nom) as NomSansEspace, PrenomSansAccent(prenom) as PrenomSansAccent, prenom as Prenom, DateSansSlash(dateNaiss) as DateNaiss, classe as Classe, regime as Regime, r1Civilite as civiliteR1, r1Nom as nomR1, r1Prenom as prenomR1, AdresseMinuscule(r1Adresse1) as adresse1R1, AdresseMinuscule(r1Adresse2) as adresse2R1, AdresseMinuscule(r1Adresse3) as adresse3R1, AdresseMinuscule(r1Adresse4) as adresse4R1, r1CodePostal as CPR1, r1Ville as villeR1, r1Pays as paysR1, r1Email as mailR1, NumeroAvec0(r1FixeCom) as fixeComR1, NumeroAvec0(r1Portable) as portableR1, r1Lien as lienR1, r2Civilite as civiliteR2, r2Nom as nomR2, r2Prenom as prenomR2, AdresseMinuscule(r2Adresse1) as adresse1R2, AdresseMinuscule(r2Adresse2) as adresse2R2, AdresseMinuscule(r2Adresse3) as adresse3R2, AdresseMinuscule(r2Adresse4) as adresse4R2, r2CodePostal as CPR2, r2Ville as villeR2, r2Pays as paysR2, r2Email as mailR2, NumeroAvec0(r2FixeCom) as fixeComR2, NumeroAvec0(r2Portable) as portableR2, r2Lien as lienR2 FROM eleve Where numeroINE = @INE";

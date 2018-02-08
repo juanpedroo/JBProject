@@ -31,6 +31,7 @@ namespace projetMetro
         private void formBeforeAdmin_Load(object sender, EventArgs e)
         {
             mTBusername.Select();
+            formLinkServer.serv = Properties.Settings.Default.pathServ;
         }
 
         static public string pass = "";
@@ -44,7 +45,7 @@ namespace projetMetro
 
             if (mTBusername.Text == "admin")
             {
-                string _ConnectionString = "Database=projet;DataSource=localhost;UserId=admin;Password=" + pass;
+                string _ConnectionString = "Database=projet;DataSource="+formLinkServer.serv+";UserId=admin;Password=" + pass;
                 _Connection.ConnectionString = _ConnectionString;
 
                 try

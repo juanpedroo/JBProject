@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,7 +52,10 @@ namespace projetMetro
 
         private void formHelp_Load(object sender, EventArgs e)
         {
-            axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/MetroProjet/manualUser.pdf");
+            //axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/MetroProjet/manualUser.pdf");
+            string ProgramPath = AppDomain.CurrentDomain.BaseDirectory;
+            //jump back relative to the .exe-Path to the Resources Path
+            string FileName = string.Format("{0}Resources\\ManuelAdmin.pdf", Path.GetFullPath(Path.Combine(ProgramPath, @"..\..\")));
         }
 
         private void formHelp_FormClosed(object sender, FormClosedEventArgs e)
