@@ -45,20 +45,14 @@ namespace projetMetro
 
         private void formAdminManual_Load(object sender, EventArgs e)
         {
-            //axAcroPDF1.LoadFile(Properties.Resources.ManuelAdmin+".pdf");
-            //get current folderpath of the .exe
-            string ProgramPath = AppDomain.CurrentDomain.BaseDirectory;
-            //jump back relative to the .exe-Path to the Resources Path
-            string FileName = string.Format("{0}Resources\\ManuelAdmin", Path.GetFullPath(Path.Combine(ProgramPath, @"..\..\")));
-
-            //Open PDF
-            System.Diagnostics.Process.Start(@"" + FileName + "");
+            
+            axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/MetroProjet/manualAdmin.pdf");
         }
 
         private void formAdminManual_FormClosed(object sender, FormClosedEventArgs e)
         {
-            formAdmin fAdmin = new formAdmin();
-            fAdmin.Show();
+            clearAxPDF();
+            this.Close();
         }
     }
 }

@@ -318,8 +318,11 @@ namespace projetMetro
 
         private void mTileSortie_Click(object sender, EventArgs e)
         {
-            mTileSortie.BackColor = Color.Green;
+            //mTileSortie.BackColor = Color.Green;
         }
+
+        //public ArrayList lesEleves = new ArrayList();
+        
 
         private void mBTafficher_Click(object sender, EventArgs e)
         {
@@ -467,6 +470,11 @@ namespace projetMetro
                     axAcroPDF1.setShowToolbar(false);
                     axAcroPDF1.setShowScrollbars(false);
                     axAcroPDF1.Select();
+
+                    ///
+                    Eleve unEleve = new Eleve(tabNom[0].ToString(), tabPrenom[0].ToString(), tabClasse[0].ToString(), tabRegime[0].ToString(), tabDate[0].ToString());
+                    //lesEleves.Add(unEleve);
+                    ///
 
                     DateTime help = DateTime.Now;
                     //DateTime help = new DateTime(2018, 01, 28, 13, 50, 00);
@@ -807,8 +815,9 @@ namespace projetMetro
 
         private void formUser_FormClosed(object sender, FormClosedEventArgs e)
         {
-            formMain fMain = new formMain();
-            fMain.Show(); 
+            //formMain fMain = new formMain();
+            //fMain.Show();
+            this.Close();
         }
     }
 }

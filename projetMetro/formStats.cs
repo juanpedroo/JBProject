@@ -17,9 +17,17 @@ namespace projetMetro
             InitializeComponent();
         }
 
+        
+
         private void mLinkReturn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void formStats_Load(object sender, EventArgs e)
+        {
+            
+            mLabelScanEleve.Text = Convert.ToString(Eleve.getNbEleveScannes());
         }
     }
 }
