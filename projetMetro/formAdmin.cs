@@ -20,6 +20,7 @@ namespace projetMetro
             this.WindowState = FormWindowState.Maximized;
             System.Globalization.CultureInfo cultureInfo = new System.Globalization.CultureInfo("fr-FR");
             Application.CurrentCulture = cultureInfo;
+           
         }
 
         private void formAdmin_Load(object sender, EventArgs e)

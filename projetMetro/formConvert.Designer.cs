@@ -49,6 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 465);
             this.Controls.Add(this.mLinkReturn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formConvert";
             this.Resizable = false;
             this.ResumeLayout(false);

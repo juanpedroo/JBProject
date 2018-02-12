@@ -103,6 +103,7 @@
             this.ClientSize = new System.Drawing.Size(765, 465);
             this.Controls.Add(this.mLinkReturn);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formDispEleve";
             this.Load += new System.EventHandler(this.formDispEleve_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
