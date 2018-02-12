@@ -42,7 +42,8 @@ namespace projetMetro
         private void mLinkRetry_Click(object sender, EventArgs e)
         {
             clearAxPDF();
-            axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/MetroProjet/manualUser.pdf");
+            axAcroPDF1.LoadFile("helpFile.pdf");
+
         }
 
         private void axAcroPDF1_Enter(object sender, EventArgs e)
@@ -52,10 +53,20 @@ namespace projetMetro
 
         private void formHelp_Load(object sender, EventArgs e)
         {
-            //axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/MetroProjet/manualUser.pdf");
-            string ProgramPath = AppDomain.CurrentDomain.BaseDirectory;
-            //jump back relative to the .exe-Path to the Resources Path
-            string FileName = string.Format("{0}Resources\\ManuelAdmin.pdf", Path.GetFullPath(Path.Combine(ProgramPath, @"..\..\")));
+            byte[] PDF = Properties.Resources.ManuelUtilisateur;
+
+            MemoryStream ms = new MemoryStream(PDF);
+
+            //Create PDF File From Binary of resources folders helpFile.pdf
+            FileStream f = new FileStream("helpFile.pdf", FileMode.OpenOrCreate);
+
+            //Write Bytes into Our Created helpFile.pdf
+            ms.WriteTo(f);
+            f.Close();
+            ms.Close();
+
+            // Finally Show the Created PDF from resources 
+            axAcroPDF1.LoadFile("helpFile.pdf");
         }
 
         private void formHelp_FormClosed(object sender, FormClosedEventArgs e)

@@ -61,11 +61,20 @@ namespace projetMetro
             metroToolTip1.Show(" " + mLabelAdresseR2.Text, mLabelAdresseR2);
         }
 
-        public string reductionRegime(ArrayList tabReg)
+        public string reductionRegime(ArrayList tabReg, ArrayList tabAutorisation)
         {
             string motRegime = Convert.ToString(tabReg[0]);
+            string autoSortie = Convert.ToString(tabAutorisation[0]);
             string typeRegime = "";
 
+            if (motRegime.Contains("DEMI-PENSIONNAIRE") && autoSortie.Contains("FONCTION DES COURS ASSURES"))
+            {
+                typeRegime = "DP AUTORISE";
+            }
+            if (motRegime.Contains("DEMI-PENSIONNAIRE") && autoSortie.Contains("horaires habituels"))
+            {
+                typeRegime = "DP NON AUTORISE";
+            }
             if (motRegime.Contains("INTERNE") == true)
             {
                 typeRegime = "INTERNE";
@@ -73,10 +82,6 @@ namespace projetMetro
             if (motRegime.Contains("EXTERNE") == true)
             {
                 typeRegime = "EXTERNE";
-            }
-            if (motRegime.Contains("DEMI-PENSIONNAIRE") == true)
-            {
-                typeRegime = "DEMI-PENSIONNAIRE";
             }
             return typeRegime;
         }
@@ -340,7 +345,7 @@ namespace projetMetro
                 _Connection = new MySqlConnection("Database=projet;DataSource="+ formLinkServer.serv+"; UserId=user;Password=;");
                 MySqlCommand requete = new MySqlCommand();
                 requete.Connection = _Connection;
-                requete.CommandText = "SELECT numeroINE as INE, nom as Nom, NomSansEspace(nom) as NomSansEspace, PrenomSansAccent(prenom) as PrenomSansAccent, prenom as Prenom, DateSansSlash(dateNaiss) as DateNaiss, classe as Classe, regime as Regime, r1Civilite as civiliteR1, r1Nom as nomR1, r1Prenom as prenomR1, AdresseMinuscule(r1Adresse1) as adresse1R1, AdresseMinuscule(r1Adresse2) as adresse2R1, AdresseMinuscule(r1Adresse3) as adresse3R1, AdresseMinuscule(r1Adresse4) as adresse4R1, r1CodePostal as CPR1, r1Ville as villeR1, r1Pays as paysR1, r1Email as mailR1, NumeroAvec0(r1FixeCom) as fixeComR1, NumeroAvec0(r1Portable) as portableR1, r1Lien as lienR1, r2Civilite as civiliteR2, r2Nom as nomR2, r2Prenom as prenomR2, AdresseMinuscule(r2Adresse1) as adresse1R2, AdresseMinuscule(r2Adresse2) as adresse2R2, AdresseMinuscule(r2Adresse3) as adresse3R2, AdresseMinuscule(r2Adresse4) as adresse4R2, r2CodePostal as CPR2, r2Ville as villeR2, r2Pays as paysR2, r2Email as mailR2, NumeroAvec0(r2FixeCom) as fixeComR2, NumeroAvec0(r2Portable) as portableR2, r2Lien as lienR2 FROM eleve Where numeroINE = @INE";
+                requete.CommandText = "SELECT numeroINE as INE, nom as Nom, NomSansEspace(nom) as NomSansEspace, PrenomSansAccent(prenom) as PrenomSansAccent, prenom as Prenom, DateSansSlash(dateNaiss) as DateNaiss, classe as Classe, AutorisationSortie as AutorisationSortie, regime as Regime, r1Civilite as civiliteR1, r1Nom as nomR1, r1Prenom as prenomR1, AdresseMinuscule(r1Adresse1) as adresse1R1, AdresseMinuscule(r1Adresse2) as adresse2R1, AdresseMinuscule(r1Adresse3) as adresse3R1, AdresseMinuscule(r1Adresse4) as adresse4R1, r1CodePostal as CPR1, r1Ville as villeR1, r1Pays as paysR1, r1Email as mailR1, NumeroAvec0(r1FixeCom) as fixeComR1, NumeroAvec0(r1Portable) as portableR1, r1Lien as lienR1, r2Civilite as civiliteR2, r2Nom as nomR2, r2Prenom as prenomR2, AdresseMinuscule(r2Adresse1) as adresse1R2, AdresseMinuscule(r2Adresse2) as adresse2R2, AdresseMinuscule(r2Adresse3) as adresse3R2, AdresseMinuscule(r2Adresse4) as adresse4R2, r2CodePostal as CPR2, r2Ville as villeR2, r2Pays as paysR2, r2Email as mailR2, NumeroAvec0(r2FixeCom) as fixeComR2, NumeroAvec0(r2Portable) as portableR2, r2Lien as lienR2 FROM eleve Where numeroINE = @INE";
                 requete.Parameters.AddWithValue("@INE", INE);
                 _Connection.Open();
                 MySqlDataReader readerRequete = requete.ExecuteReader();
@@ -352,6 +357,7 @@ namespace projetMetro
                 ArrayList tabNomSansEspace = new ArrayList();
                 ArrayList tabPrenomSansAccent = new ArrayList();
                 ArrayList tabClasse = new ArrayList();
+                ArrayList tabAutorisationSortie = new ArrayList();
                 ArrayList tabRegime = new ArrayList();
 
                 ArrayList tabNomR1 = new ArrayList();
@@ -393,6 +399,7 @@ namespace projetMetro
                     tabPrenomSansAccent.Add(readerRequete["PrenomSansAccent"].ToString());
                     tabNomSansEspace.Add(readerRequete["NomSansEspace"].ToString());
                     tabClasse.Add(readerRequete["Classe"].ToString());
+                    tabAutorisationSortie.Add(readerRequete["AutorisationSortie"].ToString());
                     tabRegime.Add(readerRequete["Regime"].ToString());
 
                     tabNomR1.Add(readerRequete["nomR1"].ToString());
@@ -425,7 +432,7 @@ namespace projetMetro
                     tabAdresse3R2.Add(readerRequete["adresse3R2"].ToString());
                     tabAdresse4R2.Add(readerRequete["adresse4R2"].ToString());
 
-                    string regimeReduit = reductionRegime(tabRegime);
+                    string regimeReduit = reductionRegime(tabRegime, tabAutorisationSortie);
                     string responsableReduit1 = reductionResponsable(tabLienR1);
                     string responsableReduit2 = reductionResponsable(tabLienR2);
                     string numFixeR1 = testNumero(tabFixeR1);
@@ -571,6 +578,9 @@ namespace projetMetro
                                 valSecond = valSecond + 1;
 
 
+            
+
+
                                 int valEnd = Convert.ToInt32(lines[i + 1].Substring(15, 2));
                                 string firstEnd = lines[i + 1].Substring(0, 15);
                                 string secondEnd = "";
@@ -611,9 +621,6 @@ namespace projetMetro
                             // labelDate.Text = tabDt[1, 0];
                         }
 
-
-
-
                         int subTab0 = Convert.ToInt32(dtStart.Substring(17, 2));
                         //lbTest.Text = Convert.ToString(subTab0);
                         string subDtStartdate = dtStart.Substring(8, 8);
@@ -640,22 +647,21 @@ namespace projetMetro
                             {
                                 if ((Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) <= Convert.ToInt32(dtStart.Substring(17, 2))) && (Convert.ToInt32(dtStart.Substring(17, 2)) < Convert.ToInt32(tabDt[z, 1].Substring(15, 2))))
                                 {
-                                    mTileSortie.Text = "Cours";
+                                    mTileSortie.Text = "Non Autorisé";
                                     //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\743.wav");
                                     //simpleSound.Play();
                                 }
-
                             }
 
                         }
                         if (mTileSortie.Text == "")
                         {
-                            mTileSortie.Text = "Pas Cours";
+                            mTileSortie.Text = "Autorisé";
                             //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\1025.wav");
                             //simpleSound.Play();
                         }
 
-                        if (mTileSortie.Text == "Cours")
+                        if (mTileSortie.Text == "Non Autorisé")
                         {
                             //mTileSortie.Font = new Font("Verdana", 24);
                             mTileSortie.BackColor = Color.Red;
@@ -677,8 +683,9 @@ namespace projetMetro
                 }
             }
             
-            finally
+            catch
             {
+                MetroMessageBox.Show(this, "Problème de liaison avec la base de données \nVeuillez contacter l'administrateur !", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _Connection.Close();
             }
         }

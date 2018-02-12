@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -46,9 +46,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'test|AnyCPU'">
+    <OutputPath>bin\test\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>if_Gitlab_2613296 %281%29.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="IPAddressControlLib">
-      <HintPath>..\..\ipaddresscontrollib-master\VS2017\IPAddressControlLib\bin\Debug\IPAddressControlLib.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\IPAddressControlLib.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
@@ -145,6 +158,12 @@
     <Compile Include="formHelp.Designer.cs">
       <DependentUpon>formHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="formImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formImport.Designer.cs">
+      <DependentUpon>formImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLinkServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +238,9 @@
     <EmbeddedResource Include="formHelp.resx">
       <DependentUpon>formHelp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formImport.resx">
+      <DependentUpon>formImport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formLinkServer.resx">
       <DependentUpon>formLinkServer.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +292,7 @@
     <Content Include="docs\MySqlParameter.xml" />
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
+    <Content Include="if_Gitlab_2613296 %281%29.ico" />
     <EmbeddedResource Include="Localization\fr\MetroMessageBoxControl.xml" />
     <EmbeddedResource Include="Localization\fr\MetroToggle.xml" />
   </ItemGroup>

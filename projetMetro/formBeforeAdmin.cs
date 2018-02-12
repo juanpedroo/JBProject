@@ -16,7 +16,6 @@ namespace projetMetro
         public formBeforeAdmin()
         {
             InitializeComponent();
-            
         }
 
         private void mLinkReturn_Click(object sender, EventArgs e)
@@ -36,21 +35,25 @@ namespace projetMetro
 
         static public string pass = "";
 
-        MySqlConnection _Connection = new MySqlConnection("Data Source=projet;Initial Catalog=BDD;UserId=user;Password=");
+        //MySqlConnection _Connection = new MySqlConnection("Data Source=projet;Initial Catalog=BDD;UserId=user;Password=");
 
         private void mBTconnect_Click(object sender, EventArgs e)
         {
             pass = mTBpassword.Text;
             string usr = mTBusername.Text;
 
-            if (mTBusername.Text == "admin")
+            if (mTBusername.Text == "admin" && mTBpassword.Text == "fabralex")
             {
-                string _ConnectionString = "Database=projet;DataSource="+formLinkServer.serv+";UserId=admin;Password=" + pass;
-                _Connection.ConnectionString = _ConnectionString;
-
+                this.Hide();
+                formAdmin fAdmin = new formAdmin();
+                fAdmin.ShowDialog();
+                this.Close();
+                //string _ConnectionString = "Database=projet;DataSource="+formLinkServer.serv+";UserId=admin;Password=" + pass;
+                //_Connection.ConnectionString = _ConnectionString;
+                /*
                 try
                 {
-                    _Connection.Open();
+                    //_Connection.Open();
                 }
                 catch
                 {
@@ -65,12 +68,12 @@ namespace projetMetro
                     //MessageBox.Show("Le nom de compte ou le mot de passe est incorrect");
                     return;
                 }
-                _Connection.Close();
-                this.Hide();
-                formAdmin fAdmin = new formAdmin();
-                fAdmin.Show();
+                */
+
+                //_Connection.Close();
+
                 //this.Visible = false;
-                this.Close();
+
             }
             else
             {

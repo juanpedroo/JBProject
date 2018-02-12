@@ -20,6 +20,7 @@ namespace projetMetro
             this.WindowState = FormWindowState.Maximized;
             System.Globalization.CultureInfo cultureInfo = new System.Globalization.CultureInfo("fr-FR");
             Application.CurrentCulture = cultureInfo;
+           
         }
 
         private void formAdmin_Load(object sender, EventArgs e)
@@ -95,7 +96,7 @@ namespace projetMetro
             fAManual.ShowDialog();
         }
 
-        private void mTileBarcode_Click(object sender, EventArgs e)
+          private void mTileBarcode_Click(object sender, EventArgs e)
         {
             formBarcode fBarcode = new formBarcode();
             fBarcode.ShowDialog();
@@ -123,6 +124,12 @@ namespace projetMetro
         {
             formLinkServer fLinkS = new formLinkServer();
             fLinkS.ShowDialog();
+        }
+
+        private void metroTileImport_Click(object sender, EventArgs e)
+        {
+            formImport fImport = new formImport();
+            fImport.ShowDialog();
         }
     }
 }

@@ -681,6 +681,7 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.mLinkReturn);
             this.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Movable = false;
             this.Name = "formUser";

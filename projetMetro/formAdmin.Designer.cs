@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAdmin));
             this.mLinkReturn = new MetroFramework.Controls.MetroLink();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.metroTileImport = new MetroFramework.Controls.MetroTile();
             this.mTileStatus = new MetroFramework.Controls.MetroTile();
             this.mTileStats = new MetroFramework.Controls.MetroTile();
             this.mTileManualAdmin = new MetroFramework.Controls.MetroTile();
@@ -62,10 +63,9 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.metroTileImport);
             this.panel1.Controls.Add(this.mTileStatus);
             this.panel1.Controls.Add(this.mTileStats);
             this.panel1.Controls.Add(this.mTileManualAdmin);
@@ -81,15 +81,30 @@
             this.panel1.Controls.Add(this.metroLabel1);
             this.panel1.Controls.Add(this.mTileConvert);
             this.panel1.Controls.Add(this.mTileBarcode);
-            this.panel1.Location = new System.Drawing.Point(355, 114);
+            this.panel1.Location = new System.Drawing.Point(198, 112);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(671, 460);
+            this.panel1.Size = new System.Drawing.Size(1052, 628);
             this.panel1.TabIndex = 5;
+            
+            // 
+            // metroTileImport
+            // 
+            this.metroTileImport.ActiveControl = null;
+            this.metroTileImport.Location = new System.Drawing.Point(708, 222);
+            this.metroTileImport.Name = "metroTileImport";
+            this.metroTileImport.Size = new System.Drawing.Size(130, 130);
+            this.metroTileImport.TabIndex = 66;
+            this.metroTileImport.Text = "Importer les élèves";
+            this.metroTileImport.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTileImport.TileImage")));
+            this.metroTileImport.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileImport.UseSelectable = true;
+            this.metroTileImport.UseTileImage = true;
+            this.metroTileImport.Click += new System.EventHandler(this.metroTileImport_Click);
             // 
             // mTileStatus
             // 
             this.mTileStatus.ActiveControl = null;
-            this.mTileStatus.Location = new System.Drawing.Point(537, 327);
+            this.mTileStatus.Location = new System.Drawing.Point(708, 387);
             this.mTileStatus.Name = "mTileStatus";
             this.mTileStatus.Size = new System.Drawing.Size(130, 130);
             this.mTileStatus.TabIndex = 65;
@@ -103,7 +118,7 @@
             // mTileStats
             // 
             this.mTileStats.ActiveControl = null;
-            this.mTileStats.Location = new System.Drawing.Point(401, 327);
+            this.mTileStats.Location = new System.Drawing.Point(572, 387);
             this.mTileStats.Name = "mTileStats";
             this.mTileStats.Size = new System.Drawing.Size(130, 130);
             this.mTileStats.TabIndex = 64;
@@ -117,7 +132,7 @@
             // mTileManualAdmin
             // 
             this.mTileManualAdmin.ActiveControl = null;
-            this.mTileManualAdmin.Location = new System.Drawing.Point(3, 26);
+            this.mTileManualAdmin.Location = new System.Drawing.Point(174, 86);
             this.mTileManualAdmin.Name = "mTileManualAdmin";
             this.mTileManualAdmin.Size = new System.Drawing.Size(236, 130);
             this.mTileManualAdmin.TabIndex = 62;
@@ -131,7 +146,7 @@
             // mTileLinkServ
             // 
             this.mTileLinkServ.ActiveControl = null;
-            this.mTileLinkServ.Location = new System.Drawing.Point(3, 162);
+            this.mTileLinkServ.Location = new System.Drawing.Point(174, 222);
             this.mTileLinkServ.Name = "mTileLinkServ";
             this.mTileLinkServ.Size = new System.Drawing.Size(130, 130);
             this.mTileLinkServ.TabIndex = 63;
@@ -145,7 +160,7 @@
             // mTilePath
             // 
             this.mTilePath.ActiveControl = null;
-            this.mTilePath.Location = new System.Drawing.Point(139, 162);
+            this.mTilePath.Location = new System.Drawing.Point(310, 222);
             this.mTilePath.Name = "mTilePath";
             this.mTilePath.Size = new System.Drawing.Size(236, 130);
             this.mTilePath.TabIndex = 61;
@@ -159,7 +174,7 @@
             // mTileActionBD
             // 
             this.mTileActionBD.ActiveControl = null;
-            this.mTileActionBD.Location = new System.Drawing.Point(245, 26);
+            this.mTileActionBD.Location = new System.Drawing.Point(416, 86);
             this.mTileActionBD.Name = "mTileActionBD";
             this.mTileActionBD.Size = new System.Drawing.Size(130, 130);
             this.mTileActionBD.TabIndex = 60;
@@ -172,9 +187,9 @@
             // mTileDispEleve
             // 
             this.mTileDispEleve.ActiveControl = null;
-            this.mTileDispEleve.Location = new System.Drawing.Point(401, 162);
+            this.mTileDispEleve.Location = new System.Drawing.Point(572, 222);
             this.mTileDispEleve.Name = "mTileDispEleve";
-            this.mTileDispEleve.Size = new System.Drawing.Size(266, 130);
+            this.mTileDispEleve.Size = new System.Drawing.Size(130, 130);
             this.mTileDispEleve.TabIndex = 59;
             this.mTileDispEleve.Text = "Afficher les élèves";
             this.mTileDispEleve.TileImage = ((System.Drawing.Image)(resources.GetObject("mTileDispEleve.TileImage")));
@@ -186,7 +201,7 @@
             // mTileDelEleve
             // 
             this.mTileDelEleve.ActiveControl = null;
-            this.mTileDelEleve.Location = new System.Drawing.Point(537, 26);
+            this.mTileDelEleve.Location = new System.Drawing.Point(708, 86);
             this.mTileDelEleve.Name = "mTileDelEleve";
             this.mTileDelEleve.Size = new System.Drawing.Size(130, 130);
             this.mTileDelEleve.TabIndex = 58;
@@ -200,7 +215,7 @@
             // mTileAddEleve
             // 
             this.mTileAddEleve.ActiveControl = null;
-            this.mTileAddEleve.Location = new System.Drawing.Point(401, 26);
+            this.mTileAddEleve.Location = new System.Drawing.Point(572, 86);
             this.mTileAddEleve.Name = "mTileAddEleve";
             this.mTileAddEleve.Size = new System.Drawing.Size(130, 130);
             this.mTileAddEleve.TabIndex = 57;
@@ -213,7 +228,7 @@
             // 
             // metroLabel4
             // 
-            this.metroLabel4.Location = new System.Drawing.Point(3, 303);
+            this.metroLabel4.Location = new System.Drawing.Point(174, 363);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(124, 21);
             this.metroLabel4.TabIndex = 56;
@@ -221,7 +236,7 @@
             // 
             // metroLabel3
             // 
-            this.metroLabel3.Location = new System.Drawing.Point(3, 4);
+            this.metroLabel3.Location = new System.Drawing.Point(174, 64);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(158, 19);
             this.metroLabel3.TabIndex = 55;
@@ -229,7 +244,7 @@
             // 
             // metroLabel2
             // 
-            this.metroLabel2.Location = new System.Drawing.Point(401, 4);
+            this.metroLabel2.Location = new System.Drawing.Point(572, 64);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(133, 19);
             this.metroLabel2.TabIndex = 54;
@@ -237,7 +252,7 @@
             // 
             // metroLabel1
             // 
-            this.metroLabel1.Location = new System.Drawing.Point(401, 303);
+            this.metroLabel1.Location = new System.Drawing.Point(572, 363);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(74, 21);
             this.metroLabel1.TabIndex = 53;
@@ -246,7 +261,7 @@
             // mTileConvert
             // 
             this.mTileConvert.ActiveControl = null;
-            this.mTileConvert.Location = new System.Drawing.Point(139, 327);
+            this.mTileConvert.Location = new System.Drawing.Point(310, 387);
             this.mTileConvert.Name = "mTileConvert";
             this.mTileConvert.Size = new System.Drawing.Size(236, 130);
             this.mTileConvert.TabIndex = 52;
@@ -260,7 +275,7 @@
             // mTileBarcode
             // 
             this.mTileBarcode.ActiveControl = null;
-            this.mTileBarcode.Location = new System.Drawing.Point(3, 327);
+            this.mTileBarcode.Location = new System.Drawing.Point(174, 387);
             this.mTileBarcode.Name = "mTileBarcode";
             this.mTileBarcode.Size = new System.Drawing.Size(130, 130);
             this.mTileBarcode.TabIndex = 51;
@@ -280,6 +295,7 @@
             this.ClientSize = new System.Drawing.Size(1098, 714);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mLinkReturn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Movable = false;
             this.Name = "formAdmin";
@@ -311,5 +327,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTile mTileConvert;
         private MetroFramework.Controls.MetroTile mTileBarcode;
+        private MetroFramework.Controls.MetroTile metroTileImport;
     }
 }
