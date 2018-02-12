@@ -37,5 +37,10 @@ namespace projetMetro
             Properties.Settings.Default.pathServ = serv;
             Properties.Settings.Default.Save();
         }
+
+        private void formLinkServer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

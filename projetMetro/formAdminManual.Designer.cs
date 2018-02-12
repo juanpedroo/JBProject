@@ -78,6 +78,7 @@
             this.Controls.Add(this.axAcroPDF1);
             this.Controls.Add(this.mLinkRetry);
             this.Controls.Add(this.mLinkReturn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Movable = false;
             this.Name = "formAdminManual";

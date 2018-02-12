@@ -46,9 +46,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>if_Gitlab_2613296 %281%29.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="IPAddressControlLib">
-      <HintPath>..\..\ipaddresscontrollib-master\VS2017\IPAddressControlLib\bin\Debug\IPAddressControlLib.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\IPAddressControlLib.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
@@ -270,6 +273,7 @@
     <Content Include="docs\MySqlParameter.xml" />
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
+    <Content Include="if_Gitlab_2613296 %281%29.ico" />
     <EmbeddedResource Include="Localization\fr\MetroMessageBoxControl.xml" />
     <EmbeddedResource Include="Localization\fr\MetroToggle.xml" />
   </ItemGroup>

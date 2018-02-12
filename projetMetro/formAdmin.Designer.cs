@@ -62,9 +62,7 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.mTileStatus);
             this.panel1.Controls.Add(this.mTileStats);
@@ -81,10 +79,11 @@
             this.panel1.Controls.Add(this.metroLabel1);
             this.panel1.Controls.Add(this.mTileConvert);
             this.panel1.Controls.Add(this.mTileBarcode);
-            this.panel1.Location = new System.Drawing.Point(355, 114);
+            this.panel1.Location = new System.Drawing.Point(198, 112);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(671, 460);
             this.panel1.TabIndex = 5;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // mTileStatus
             // 
@@ -280,6 +279,7 @@
             this.ClientSize = new System.Drawing.Size(1098, 714);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mLinkReturn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Movable = false;
             this.Name = "formAdmin";

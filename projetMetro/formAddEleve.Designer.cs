@@ -1242,6 +1242,7 @@
             this.Controls.Add(this.mTBineE);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.mLinkReturn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "formAddEleve";

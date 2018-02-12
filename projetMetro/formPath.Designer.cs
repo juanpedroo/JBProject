@@ -163,6 +163,7 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroTextBox2);
             this.Controls.Add(this.metroTextBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formPath";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formPath_FormClosing);
             this.Load += new System.EventHandler(this.formPath_Load_1);

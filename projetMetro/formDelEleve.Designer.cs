@@ -117,6 +117,7 @@
             this.Controls.Add(this.tbINESuppr);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(1, 7);
             this.Name = "formDelEleve";
             this.Load += new System.EventHandler(this.formDelEleve_Load);

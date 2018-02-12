@@ -50,6 +50,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1098, 714);
             this.Controls.Add(this.mLinkReturn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Movable = false;
             this.Name = "formAbout";
