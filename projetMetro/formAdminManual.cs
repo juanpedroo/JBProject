@@ -58,7 +58,7 @@ namespace projetMetro
             ms.Close();
 
             // Finally Show the Created PDF from resources 
-            axAcroPDF1.LoadFile("AdminHelpFile.pdf.pdf");
+            axAcroPDF1.LoadFile("AdminHelpFile.pdf");
         }
 
         private void formAdminManual_FormClosed(object sender, FormClosedEventArgs e)
