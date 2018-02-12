@@ -16,7 +16,6 @@ namespace projetMetro
         public formBeforeAdmin()
         {
             InitializeComponent();
-            
         }
 
         private void mLinkReturn_Click(object sender, EventArgs e)

@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -45,6 +45,16 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'test|AnyCPU'">
+    <OutputPath>bin\test\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IPAddressControlLib">
@@ -145,6 +155,12 @@
     <Compile Include="formHelp.Designer.cs">
       <DependentUpon>formHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="formImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formImport.Designer.cs">
+      <DependentUpon>formImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLinkServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formHelp.resx">
       <DependentUpon>formHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formImport.resx">
+      <DependentUpon>formImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLinkServer.resx">
       <DependentUpon>formLinkServer.cs</DependentUpon>

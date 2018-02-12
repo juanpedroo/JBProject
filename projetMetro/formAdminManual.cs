@@ -40,13 +40,25 @@ namespace projetMetro
         private void mLinkRetry_Click(object sender, EventArgs e)
         {
             clearAxPDF();
-            axAcroPDF1.LoadFile(Properties.Resources.ManuelAdmin+".pdf");
+            axAcroPDF1.LoadFile("AdminHelpFile.pdf");
         }
 
         private void formAdminManual_Load(object sender, EventArgs e)
         {
-            
-            axAcroPDF1.LoadFile("C:/Users/Baptiste/Desktop/MetroProjet/manualAdmin.pdf");
+            byte[] PDF = Properties.Resources.ManuelAdmin;
+
+            MemoryStream ms = new MemoryStream(PDF);
+
+            //Create PDF File From Binary of resources folders helpFile.pdf
+            FileStream f = new FileStream("AdminHelpFile.pdf", FileMode.OpenOrCreate);
+
+            //Write Bytes into Our Created helpFile.pdf
+            ms.WriteTo(f);
+            f.Close();
+            ms.Close();
+
+            // Finally Show the Created PDF from resources 
+            axAcroPDF1.LoadFile("AdminHelpFile.pdf.pdf");
         }
 
         private void formAdminManual_FormClosed(object sender, FormClosedEventArgs e)

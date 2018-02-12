@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using MetroFramework;
 using MetroFramework.Forms;
 using MySql.Data.MySqlClient;
 
+
 namespace projetMetro
 {
     public partial class formAddEleve : MetroFramework.Forms.MetroForm
@@ -18,7 +20,8 @@ namespace projetMetro
         public formAddEleve()
         {
             InitializeComponent();
-            
+            //var myEncoding = new Encoding(10081);
+
         }
 
         private void mLinkReturn_Click(object sender, EventArgs e)
@@ -89,7 +92,8 @@ namespace projetMetro
 
         private void formAddEleve_Load(object sender, EventArgs e)
         {
-
+            
+            
         }
     }
 }
