@@ -41,7 +41,7 @@
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel1.Location = new System.Drawing.Point(23, 82);
+            this.metroLabel1.Location = new System.Drawing.Point(40, 60);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(567, 25);
             this.metroLabel1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(24, 149);
+            this.metroLabel2.Location = new System.Drawing.Point(31, 115);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(40, 19);
             this.metroLabel2.TabIndex = 1;
@@ -71,7 +71,7 @@
             this.tbINESuppr.CustomButton.UseSelectable = true;
             this.tbINESuppr.CustomButton.Visible = false;
             this.tbINESuppr.Lines = new string[0];
-            this.tbINESuppr.Location = new System.Drawing.Point(71, 144);
+            this.tbINESuppr.Location = new System.Drawing.Point(77, 111);
             this.tbINESuppr.MaxLength = 32767;
             this.tbINESuppr.Name = "tbINESuppr";
             this.tbINESuppr.PasswordChar = '\0';
@@ -88,11 +88,15 @@
             // 
             // btSupprEleve
             // 
-            this.btSupprEleve.Location = new System.Drawing.Point(252, 300);
+            this.btSupprEleve.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btSupprEleve.ForeColor = System.Drawing.Color.White;
+            this.btSupprEleve.Location = new System.Drawing.Point(259, 161);
             this.btSupprEleve.Name = "btSupprEleve";
-            this.btSupprEleve.Size = new System.Drawing.Size(124, 60);
+            this.btSupprEleve.Size = new System.Drawing.Size(110, 40);
             this.btSupprEleve.TabIndex = 3;
             this.btSupprEleve.Text = "Supprimer";
+            this.btSupprEleve.UseCustomBackColor = true;
+            this.btSupprEleve.UseCustomForeColor = true;
             this.btSupprEleve.UseSelectable = true;
             this.btSupprEleve.Click += new System.EventHandler(this.btSupprEleve_Click);
             // 
@@ -109,9 +113,10 @@
             // 
             // formDelEleve
             // 
+            this.AcceptButton = this.btSupprEleve;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 430);
+            this.ClientSize = new System.Drawing.Size(650, 250);
             this.Controls.Add(this.mLinkReturn);
             this.Controls.Add(this.btSupprEleve);
             this.Controls.Add(this.tbINESuppr);
@@ -119,7 +124,9 @@
             this.Controls.Add(this.metroLabel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(1, 7);
+            this.MaximizeBox = false;
             this.Name = "formDelEleve";
+            this.Resizable = false;
             this.Load += new System.EventHandler(this.formDelEleve_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

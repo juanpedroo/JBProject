@@ -40,7 +40,12 @@ namespace projetMetro
 
         private void formLinkServer_Load(object sender, EventArgs e)
         {
+            mTbServ.Select();
+        }
 
+        private void mLinkReturn_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

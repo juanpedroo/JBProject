@@ -28,7 +28,7 @@ namespace projetMetro
 
         private void formDispEleve_Load(object sender, EventArgs e)
         {
-            server = "localhost";
+            server = "10.11.21.189";
             database = "projet";
             uid = "admin";
             password = formBeforeAdmin.pass;

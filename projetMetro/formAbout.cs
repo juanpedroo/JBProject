@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,13 +16,13 @@ namespace projetMetro
         public formAbout()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
         }
 
         private void mLinkReturn_Click(object sender, EventArgs e)
         {
-
             
+
             this.Close();
         }
 
@@ -32,9 +33,33 @@ namespace projetMetro
 
         private void formAbout_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //formMain fMain = new formMain();
-            //fMain.Show();
-            this.Close();
+            formMain fMain = new formMain();
+            fMain.Show();
+        }
+
+        private void metroLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/juanpedroo/JBProject");
+        }
+
+        private void metroLink1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/juanpedroo/JBProject");
+        }
+
+        private void mLinkJF_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://jonathanferreira.ovh/");
+        }
+
+        private void mLinkBP_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://baptistepautard.wordpress.com/");
         }
     }
 }

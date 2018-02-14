@@ -131,5 +131,10 @@ namespace projetMetro
             formImport fImport = new formImport();
             fImport.ShowDialog();
         }
+
+        private void mTileManualAdmin_MouseHover(object sender, EventArgs e)
+        {
+            metroToolTip1.Show(mTileManualAdmin.Text, mTileManualAdmin);
+        }
     }
 }

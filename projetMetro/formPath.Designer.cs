@@ -55,7 +55,7 @@
             this.metroTextBox1.CustomButton.UseSelectable = true;
             this.metroTextBox1.CustomButton.Visible = false;
             this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(160, 114);
+            this.metroTextBox1.Location = new System.Drawing.Point(195, 99);
             this.metroTextBox1.MaxLength = 32767;
             this.metroTextBox1.Name = "metroTextBox1";
             this.metroTextBox1.PasswordChar = '\0';
@@ -86,7 +86,7 @@
             this.metroTextBox2.CustomButton.UseSelectable = true;
             this.metroTextBox2.CustomButton.Visible = false;
             this.metroTextBox2.Lines = new string[0];
-            this.metroTextBox2.Location = new System.Drawing.Point(160, 188);
+            this.metroTextBox2.Location = new System.Drawing.Point(195, 173);
             this.metroTextBox2.MaxLength = 32767;
             this.metroTextBox2.Name = "metroTextBox2";
             this.metroTextBox2.PasswordChar = '\0';
@@ -105,7 +105,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(24, 114);
+            this.metroLabel1.Location = new System.Drawing.Point(59, 99);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(130, 19);
             this.metroLabel1.TabIndex = 2;
@@ -114,7 +114,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(22, 188);
+            this.metroLabel2.Location = new System.Drawing.Point(57, 173);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(89, 19);
             this.metroLabel2.TabIndex = 3;
@@ -122,7 +122,7 @@
             // 
             // btPDF
             // 
-            this.btPDF.Location = new System.Drawing.Point(424, 188);
+            this.btPDF.Location = new System.Drawing.Point(459, 173);
             this.btPDF.Name = "btPDF";
             this.btPDF.Size = new System.Drawing.Size(26, 23);
             this.btPDF.TabIndex = 4;
@@ -132,7 +132,7 @@
             // 
             // btCal
             // 
-            this.btCal.Location = new System.Drawing.Point(424, 114);
+            this.btCal.Location = new System.Drawing.Point(459, 99);
             this.btCal.Name = "btCal";
             this.btCal.Size = new System.Drawing.Size(26, 23);
             this.btCal.TabIndex = 5;
@@ -155,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 455);
+            this.ClientSize = new System.Drawing.Size(560, 280);
             this.Controls.Add(this.mLinkReturn);
             this.Controls.Add(this.btCal);
             this.Controls.Add(this.btPDF);
@@ -164,7 +164,9 @@
             this.Controls.Add(this.metroTextBox2);
             this.Controls.Add(this.metroTextBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "formPath";
+            this.Resizable = false;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formPath_FormClosing);
             this.Load += new System.EventHandler(this.formPath_Load_1);
             this.ResumeLayout(false);

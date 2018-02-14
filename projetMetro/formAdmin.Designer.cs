@@ -47,6 +47,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.mTileConvert = new MetroFramework.Controls.MetroTile();
             this.mTileBarcode = new MetroFramework.Controls.MetroTile();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,7 +90,7 @@
             // metroTileImport
             // 
             this.metroTileImport.ActiveControl = null;
-            this.metroTileImport.Location = new System.Drawing.Point(708, 222);
+            this.metroTileImport.Location = new System.Drawing.Point(572, 86);
             this.metroTileImport.Name = "metroTileImport";
             this.metroTileImport.Size = new System.Drawing.Size(130, 130);
             this.metroTileImport.TabIndex = 66;
@@ -133,7 +134,7 @@
             this.mTileManualAdmin.ActiveControl = null;
             this.mTileManualAdmin.Location = new System.Drawing.Point(174, 86);
             this.mTileManualAdmin.Name = "mTileManualAdmin";
-            this.mTileManualAdmin.Size = new System.Drawing.Size(236, 130);
+            this.mTileManualAdmin.Size = new System.Drawing.Size(130, 130);
             this.mTileManualAdmin.TabIndex = 62;
             this.mTileManualAdmin.Text = "Manuel Administrateur";
             this.mTileManualAdmin.TileImage = ((System.Drawing.Image)(resources.GetObject("mTileManualAdmin.TileImage")));
@@ -141,13 +142,14 @@
             this.mTileManualAdmin.UseSelectable = true;
             this.mTileManualAdmin.UseTileImage = true;
             this.mTileManualAdmin.Click += new System.EventHandler(this.mTileManualAdmin_Click);
+            this.mTileManualAdmin.MouseHover += new System.EventHandler(this.mTileManualAdmin_MouseHover);
             // 
             // mTileLinkServ
             // 
             this.mTileLinkServ.ActiveControl = null;
-            this.mTileLinkServ.Location = new System.Drawing.Point(174, 222);
+            this.mTileLinkServ.Location = new System.Drawing.Point(310, 86);
             this.mTileLinkServ.Name = "mTileLinkServ";
-            this.mTileLinkServ.Size = new System.Drawing.Size(130, 130);
+            this.mTileLinkServ.Size = new System.Drawing.Size(236, 130);
             this.mTileLinkServ.TabIndex = 63;
             this.mTileLinkServ.Text = "Modifier l\'adresse serveur";
             this.mTileLinkServ.TileImage = ((System.Drawing.Image)(resources.GetObject("mTileLinkServ.TileImage")));
@@ -159,7 +161,7 @@
             // mTilePath
             // 
             this.mTilePath.ActiveControl = null;
-            this.mTilePath.Location = new System.Drawing.Point(310, 222);
+            this.mTilePath.Location = new System.Drawing.Point(174, 222);
             this.mTilePath.Name = "mTilePath";
             this.mTilePath.Size = new System.Drawing.Size(236, 130);
             this.mTilePath.TabIndex = 61;
@@ -173,11 +175,11 @@
             // mTileActionBD
             // 
             this.mTileActionBD.ActiveControl = null;
-            this.mTileActionBD.Location = new System.Drawing.Point(416, 86);
+            this.mTileActionBD.Location = new System.Drawing.Point(416, 222);
             this.mTileActionBD.Name = "mTileActionBD";
             this.mTileActionBD.Size = new System.Drawing.Size(130, 130);
             this.mTileActionBD.TabIndex = 60;
-            this.mTileActionBD.Text = "Agir sur la BD";
+            this.mTileActionBD.Text = "Purger la BD";
             this.mTileActionBD.TileImage = ((System.Drawing.Image)(resources.GetObject("mTileActionBD.TileImage")));
             this.mTileActionBD.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mTileActionBD.UseSelectable = true;
@@ -214,7 +216,7 @@
             // mTileAddEleve
             // 
             this.mTileAddEleve.ActiveControl = null;
-            this.mTileAddEleve.Location = new System.Drawing.Point(572, 86);
+            this.mTileAddEleve.Location = new System.Drawing.Point(708, 222);
             this.mTileAddEleve.Name = "mTileAddEleve";
             this.mTileAddEleve.Size = new System.Drawing.Size(130, 130);
             this.mTileAddEleve.TabIndex = 57;
@@ -231,7 +233,7 @@
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(124, 21);
             this.metroLabel4.TabIndex = 56;
-            this.metroLabel4.Text = "Préparer la rentrée";
+            this.metroLabel4.Text = "Code Barre";
             // 
             // metroLabel3
             // 
@@ -264,7 +266,7 @@
             this.mTileConvert.Name = "mTileConvert";
             this.mTileConvert.Size = new System.Drawing.Size(236, 130);
             this.mTileConvert.TabIndex = 52;
-            this.mTileConvert.Text = "Convertion Dbase MySql";
+            this.mTileConvert.Text = "Convertion";
             this.mTileConvert.TileImage = ((System.Drawing.Image)(resources.GetObject("mTileConvert.TileImage")));
             this.mTileConvert.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mTileConvert.UseSelectable = true;
@@ -284,6 +286,12 @@
             this.mTileBarcode.UseSelectable = true;
             this.mTileBarcode.UseTileImage = true;
             this.mTileBarcode.Click += new System.EventHandler(this.mTileBarcode_Click);
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // formAdmin
             // 
@@ -327,5 +335,6 @@
         private MetroFramework.Controls.MetroTile mTileConvert;
         private MetroFramework.Controls.MetroTile mTileBarcode;
         private MetroFramework.Controls.MetroTile metroTileImport;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }

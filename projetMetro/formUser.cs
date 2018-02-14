@@ -67,11 +67,11 @@ namespace projetMetro
             string autoSortie = Convert.ToString(tabAutorisation[0]);
             string typeRegime = "";
 
-            if (motRegime.Contains("DEMI-PENSIONNAIRE") && autoSortie.Contains("FONCTION DES COURS ASSURES"))
+            if (motRegime.Contains("DEMI-PENSIONNAIRE") && autoSortie.Contains("fonction des cours assurés"))
             {
                 typeRegime = "DP AUTORISE";
             }
-            if (motRegime.Contains("DEMI-PENSIONNAIRE") && autoSortie.Contains("horaires habituels"))
+            if (motRegime.Contains("DEMI-PENSIONNAIRE") && autoSortie.Contains("horaires de l'établissement"))
             {
                 typeRegime = "DP NON AUTORISE";
             }
@@ -822,9 +822,9 @@ namespace projetMetro
 
         private void formUser_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //formMain fMain = new formMain();
-            //fMain.Show();
-            this.Close();
+            formMain fMain = new formMain();
+            fMain.Show();
+            
         }
     }
 }

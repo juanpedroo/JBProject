@@ -20,11 +20,9 @@ namespace projetMetro
 
         private void mLinkReturn_Click(object sender, EventArgs e)
         {
-            formMain fMain = new formMain();
-            fMain.Show();
-
-            //this.Visible = false;
             this.Close();
+
+            
         }
 
         private void formBeforeAdmin_Load(object sender, EventArgs e)
@@ -39,15 +37,17 @@ namespace projetMetro
 
         private void mBTconnect_Click(object sender, EventArgs e)
         {
-            pass = mTBpassword.Text;
+            //pass = mTBpassword.Text;
             string usr = mTBusername.Text;
 
             if (mTBusername.Text == "admin" && mTBpassword.Text == "fabralex")
             {
+                pass = mTBpassword.Text;
                 this.Hide();
                 formAdmin fAdmin = new formAdmin();
                 fAdmin.ShowDialog();
                 this.Close();
+                pass = "fabralex";
                 //string _ConnectionString = "Database=projet;DataSource="+formLinkServer.serv+";UserId=admin;Password=" + pass;
                 //_Connection.ConnectionString = _ConnectionString;
                 /*
@@ -90,7 +90,13 @@ namespace projetMetro
 
         private void formBeforeAdmin_FormClosed(object sender, FormClosedEventArgs e)
         {
-           
+            formMain fMain = new formMain();
+            fMain.Show();
+
+            //this.Visible = false;
+            
+
+
         }
     }
 }
