@@ -117,7 +117,6 @@ namespace projetMetro
                 mLViewStatus.Items.Add(ex.ToString());
                 mPB.BackColor = Color.Red;
                 MessageBox.Show(ex.ToString());
-                //MessageBox.Show("Erreur !");
             }
 
             mPB.PerformStep();
@@ -125,6 +124,9 @@ namespace projetMetro
             mLViewStatus.Scrollable = false;
         }
 
-        
+        private void mLinkReturn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

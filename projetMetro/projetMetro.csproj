@@ -57,7 +57,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>if_Gitlab_2613296 %281%29.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IPAddressControlLib">
@@ -85,6 +85,7 @@
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -293,8 +294,9 @@
     <Content Include="docs\MySqlParameter.xml" />
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
-    <Content Include="if_Gitlab_2613296 %281%29.ico" />
-    <None Include="Resources\oui.ico" />
+    <None Include="Resources\githublogo64.png" />
+    <None Include="Resources\githubcat.png" />
+    <None Include="Resources\icon.ico" />
     <EmbeddedResource Include="Localization\fr\MetroMessageBoxControl.xml" />
     <EmbeddedResource Include="Localization\fr\MetroToggle.xml" />
   </ItemGroup>

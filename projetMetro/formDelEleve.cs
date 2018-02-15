@@ -29,6 +29,8 @@ namespace projetMetro
             string INE = tbINESuppr.Text;
             MySqlConnection _Connection = null;
             string[] tabIne = new string[1500];
+            string[] tabNom = new string[1500];
+            string[] tabPrenom = new string[1500];
             int cpt = 0;
             bool ine = false;
             string mdp = formBeforeAdmin.pass;
@@ -37,11 +39,11 @@ namespace projetMetro
 
             try
             {
-                _Connection = new MySqlConnection("Database=projet;DataSource=localhost;UserId=admin;Password=" +mdp);
+                _Connection = new MySqlConnection("Database=projet;DataSource="+formLinkServer.serv+";UserId=admin;Password=" +mdp);
                 requete.Connection = _Connection;
                 requete1.Connection = _Connection;
                 requete.CommandText = "DELETE FROM eleve where numeroINE = @INE;";
-                requete1.CommandText = "SELECT numeroINE from eleve;";
+                requete1.CommandText = "SELECT numeroINE, prenom, nom from eleve;";
                 requete.Parameters.AddWithValue("@INE", INE);
                 _Connection.Open();
                 MySqlDataReader readerRequete1 = requete1.ExecuteReader();
@@ -49,6 +51,8 @@ namespace projetMetro
                 while (readerRequete1.Read())
                 {
                     tabIne[cpt] = readerRequete1["numeroINE"].ToString();
+                    tabPrenom[cpt] = readerRequete1["prenom"].ToString();
+                    tabNom[cpt] = readerRequete1["nom"].ToString();
                     cpt++;
                     
                 }
@@ -66,7 +70,7 @@ namespace projetMetro
                     ine = true;
                     _Connection.Open();
                     //Msg box
-                    string message = "Etes-vous sur de vouloir supprimer l'élève appartenant à l'INE : " + INE + " ?";
+                    string message = "Etes-vous sur de vouloir supprimer l'élève "+ tabPrenom[i] + " " + tabNom[i] + " possédant l'INE : " + INE + " ?";
                     string caption = "Confirmation";
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                     DialogResult result;
@@ -83,11 +87,12 @@ namespace projetMetro
 
 
                     }
-                    else
+
+                    if(result == System.Windows.Forms.DialogResult.No)
                     {
                         tbINESuppr.Text = "";
-
                     }
+                    
 
 
                 }

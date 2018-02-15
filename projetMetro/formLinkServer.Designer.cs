@@ -29,39 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLinkServer));
-            this.mLinkReturn = new MetroFramework.Controls.MetroLink();
             this.btServ = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.mLbServ = new MetroFramework.Controls.MetroLabel();
             this.mTbServ = new IPAddressControlLib.IPAddressControl();
+            this.mLinkReturn = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
-            // 
-            // mLinkReturn
-            // 
-            this.mLinkReturn.Image = ((System.Drawing.Image)(resources.GetObject("mLinkReturn.Image")));
-            this.mLinkReturn.ImageSize = 32;
-            this.mLinkReturn.Location = new System.Drawing.Point(1, 7);
-            this.mLinkReturn.Name = "mLinkReturn";
-            this.mLinkReturn.Size = new System.Drawing.Size(38, 35);
-            this.mLinkReturn.TabIndex = 4;
-            this.mLinkReturn.UseSelectable = true;
-            this.mLinkReturn.Click += new System.EventHandler(this.mLinkReturn_Click);
             // 
             // btServ
             // 
-            this.btServ.Location = new System.Drawing.Point(534, 298);
+            this.btServ.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btServ.ForeColor = System.Drawing.Color.White;
+            this.btServ.Location = new System.Drawing.Point(225, 199);
             this.btServ.Name = "btServ";
-            this.btServ.Size = new System.Drawing.Size(98, 45);
+            this.btServ.Size = new System.Drawing.Size(144, 35);
             this.btServ.TabIndex = 8;
             this.btServ.Text = "Valider";
+            this.btServ.UseCustomBackColor = true;
+            this.btServ.UseCustomForeColor = true;
             this.btServ.UseSelectable = true;
             this.btServ.Click += new System.EventHandler(this.btServ_Click);
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(122, 171);
+            this.metroLabel1.Location = new System.Drawing.Point(122, 149);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(158, 19);
             this.metroLabel1.TabIndex = 7;
@@ -92,7 +85,7 @@
             this.mTbServ.BackColor = System.Drawing.SystemColors.Window;
             this.mTbServ.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.mTbServ.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.mTbServ.Location = new System.Drawing.Point(286, 171);
+            this.mTbServ.Location = new System.Drawing.Point(276, 148);
             this.mTbServ.MinimumSize = new System.Drawing.Size(87, 20);
             this.mTbServ.Name = "mTbServ";
             this.mTbServ.ReadOnly = false;
@@ -100,18 +93,31 @@
             this.mTbServ.TabIndex = 11;
             this.mTbServ.Text = "...";
             // 
+            // mLinkReturn
+            // 
+            this.mLinkReturn.Image = ((System.Drawing.Image)(resources.GetObject("mLinkReturn.Image")));
+            this.mLinkReturn.ImageSize = 32;
+            this.mLinkReturn.Location = new System.Drawing.Point(1, 7);
+            this.mLinkReturn.Name = "mLinkReturn";
+            this.mLinkReturn.Size = new System.Drawing.Size(38, 35);
+            this.mLinkReturn.TabIndex = 12;
+            this.mLinkReturn.UseSelectable = true;
+            this.mLinkReturn.Click += new System.EventHandler(this.mLinkReturn_Click_1);
+            // 
             // formLinkServer
             // 
+            this.AcceptButton = this.btServ;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
-            this.ClientSize = new System.Drawing.Size(655, 366);
+            this.ClientSize = new System.Drawing.Size(600, 320);
+            this.Controls.Add(this.mLinkReturn);
             this.Controls.Add(this.mTbServ);
             this.Controls.Add(this.mLbServ);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.btServ);
             this.Controls.Add(this.metroLabel1);
-            this.Controls.Add(this.mLinkReturn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "formLinkServer";
@@ -124,12 +130,11 @@
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroLink mLinkReturn;
         private MetroFramework.Controls.MetroButton btServ;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel mLbServ;
         private IPAddressControlLib.IPAddressControl mTbServ;
+        private MetroFramework.Controls.MetroLink mLinkReturn;
     }
 }

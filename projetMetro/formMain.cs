@@ -14,7 +14,7 @@ namespace projetMetro
 {
     public partial class formMain : MetroFramework.Forms.MetroForm
     {
-        public static formMain fMain = new formMain();
+        //public static formMain fMain = new formMain();
         public formMain()
         {
             InitializeComponent();
@@ -54,8 +54,8 @@ namespace projetMetro
             _Connection.Close();
             //this.Hide();
             formUser fUser = new formUser();
-            fUser.ShowDialog();
-            //this.Visible = false;
+            fUser.Show();
+            this.Visible = false;
             ///this.Close();
         }
 
@@ -63,8 +63,8 @@ namespace projetMetro
         {
             
             formAbout fAbout = new formAbout();
-            fAbout.ShowDialog();
-            //this.Visible = false;
+            fAbout.Show();
+            this.Visible = false;
             //this.Close();
         }
 
@@ -81,8 +81,8 @@ namespace projetMetro
         {
             //this.Hide();
             formHelp fHelp = new formHelp();
-            fHelp.ShowDialog();
-            //this.Visible = false;
+            fHelp.Show();
+            this.Visible = false;
             //this.Close();
         }
 
