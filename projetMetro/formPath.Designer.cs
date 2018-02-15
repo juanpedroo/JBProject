@@ -122,6 +122,7 @@
             // 
             // btPDF
             // 
+            this.btPDF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btPDF.Location = new System.Drawing.Point(459, 173);
             this.btPDF.Name = "btPDF";
             this.btPDF.Size = new System.Drawing.Size(26, 23);
@@ -132,6 +133,7 @@
             // 
             // btCal
             // 
+            this.btCal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btCal.Location = new System.Drawing.Point(459, 99);
             this.btCal.Name = "btCal";
             this.btCal.Size = new System.Drawing.Size(26, 23);
@@ -142,6 +144,7 @@
             // 
             // mLinkReturn
             // 
+            this.mLinkReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mLinkReturn.Image = ((System.Drawing.Image)(resources.GetObject("mLinkReturn.Image")));
             this.mLinkReturn.ImageSize = 32;
             this.mLinkReturn.Location = new System.Drawing.Point(1, 7);

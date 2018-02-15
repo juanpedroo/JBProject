@@ -84,6 +84,7 @@
             // 
             // mLinkReturn
             // 
+            this.mLinkReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mLinkReturn.Image = ((System.Drawing.Image)(resources.GetObject("mLinkReturn.Image")));
             this.mLinkReturn.ImageSize = 32;
             this.mLinkReturn.Location = new System.Drawing.Point(1, 7);
@@ -602,6 +603,7 @@
             // mBTafficher
             // 
             this.mBTafficher.BackColor = System.Drawing.Color.DodgerBlue;
+            this.mBTafficher.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mBTafficher.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.mBTafficher.Location = new System.Drawing.Point(352, 47);
             this.mBTafficher.Name = "mBTafficher";

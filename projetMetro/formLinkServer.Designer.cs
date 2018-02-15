@@ -33,13 +33,13 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.mLbServ = new MetroFramework.Controls.MetroLabel();
-            this.mTbServ = new IPAddressControlLib.IPAddressControl();
             this.mLinkReturn = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
             // 
             // btServ
             // 
             this.btServ.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btServ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btServ.ForeColor = System.Drawing.Color.White;
             this.btServ.Location = new System.Drawing.Point(225, 199);
             this.btServ.Name = "btServ";
@@ -78,23 +78,9 @@
             this.mLbServ.TabIndex = 10;
             this.mLbServ.Text = "Adresse";
             // 
-            // mTbServ
-            // 
-            this.mTbServ.AllowInternalTab = false;
-            this.mTbServ.AutoHeight = true;
-            this.mTbServ.BackColor = System.Drawing.SystemColors.Window;
-            this.mTbServ.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.mTbServ.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.mTbServ.Location = new System.Drawing.Point(276, 148);
-            this.mTbServ.MinimumSize = new System.Drawing.Size(87, 20);
-            this.mTbServ.Name = "mTbServ";
-            this.mTbServ.ReadOnly = false;
-            this.mTbServ.Size = new System.Drawing.Size(170, 20);
-            this.mTbServ.TabIndex = 11;
-            this.mTbServ.Text = "...";
-            // 
             // mLinkReturn
             // 
+            this.mLinkReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mLinkReturn.Image = ((System.Drawing.Image)(resources.GetObject("mLinkReturn.Image")));
             this.mLinkReturn.ImageSize = 32;
             this.mLinkReturn.Location = new System.Drawing.Point(1, 7);
@@ -112,7 +98,6 @@
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(600, 320);
             this.Controls.Add(this.mLinkReturn);
-            this.Controls.Add(this.mTbServ);
             this.Controls.Add(this.mLbServ);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.btServ);
@@ -134,7 +119,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel mLbServ;
-        private IPAddressControlLib.IPAddressControl mTbServ;
+        //private IPAddressControlLib.IPAddressControl mTbServ;
         private MetroFramework.Controls.MetroLink mLinkReturn;
     }
 }

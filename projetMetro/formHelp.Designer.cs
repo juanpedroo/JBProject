@@ -37,6 +37,7 @@
             // 
             // mLinkReturn
             // 
+            this.mLinkReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mLinkReturn.Image = ((System.Drawing.Image)(resources.GetObject("mLinkReturn.Image")));
             this.mLinkReturn.ImageSize = 32;
             this.mLinkReturn.Location = new System.Drawing.Point(1, 7);
@@ -48,6 +49,7 @@
             // 
             // mLinkRetry
             // 
+            this.mLinkRetry.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mLinkRetry.Image = ((System.Drawing.Image)(resources.GetObject("mLinkRetry.Image")));
             this.mLinkRetry.ImageSize = 32;
             this.mLinkRetry.Location = new System.Drawing.Point(50, 7);

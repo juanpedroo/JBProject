@@ -19,16 +19,10 @@ namespace projetMetro
             InitializeComponent();
         }
 
-        
-
         private void mLinkReturn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        public string dayC;
-        public string monthC;
-        public string yearC;
 
         private void formStats_Load(object sender, EventArgs e)
         {
@@ -41,166 +35,163 @@ namespace projetMetro
             string mdp = formBeforeAdmin.pass;
             MySqlConnection _Connection = null;
             
+            
 
 
             try
             {
-
-                _Connection = new MySqlConnection("Database=projet;DataSource=" + formLinkServer.serv + ";UserId=admin;Password=" + mdp + ";");
-                _Connection.Open();
-
                 string dateToday = Convert.ToString(DateTime.Today);
                 labelDate.Text = dateToday;
                 int dayP = Convert.ToInt32(dateToday.Substring(0, 2));
                 int monthP = Convert.ToInt32(dateToday.Substring(3, 2));
                 int yearP = Convert.ToInt32(dateToday.Substring(6, 4));
-
-                if (dayP < 10)
-                {
-                    label1.Text = "0" + Convert.ToString(dayP);
-                    dayC = "0" + Convert.ToString(monthP);
-                }
-                if (dayP >= 10)
-                {
-                    label1.Text = Convert.ToString(dayP);
-                    dayC = Convert.ToString(dayP);
-                }
-                if (monthP < 10)
-                {
-                    label2.Text = "0" + Convert.ToString(monthP);
-                    monthC = "0" + Convert.ToString(monthP);
-                }
-                if (monthP >= 10)
-                {
-                    label2.Text = Convert.ToString(monthP);
-                    monthC = Convert.ToString(monthP);
-                }
-
+                label1.Text = Convert.ToString(dayP);
+                label2.Text = Convert.ToString(monthP);
                 label3.Text = Convert.ToString(yearP);
-                yearC = Convert.ToString(yearP);
 
-                int yearA = Convert.ToInt32(yearC);
-                int monthA = Convert.ToInt32(monthC);
-                int dayA = Convert.ToInt32(dayC);
-
-                
-               
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = _Connection;
-                cmd.CommandText = "incremental";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.ExecuteNonQuery();
-
-                MySqlCommand cmdStDay = new MySqlCommand();
-                cmdStDay.Connection = _Connection;
-                cmdStDay.CommandText = "incStatsDay";
-                cmdStDay.CommandType = CommandType.StoredProcedure;
-                cmdStDay.ExecuteNonQuery();
-
-                MySqlCommand cmdStMonth = new MySqlCommand();
-                cmdStMonth.Connection = _Connection;
-                cmdStMonth.CommandText = "incStatsMonth";
-                cmdStMonth.CommandType = CommandType.StoredProcedure;
-                cmdStMonth.ExecuteNonQuery();
-
-                MySqlCommand cmdStYear = new MySqlCommand();
-                cmdStYear.Connection = _Connection;
-                cmdStYear.CommandText = "incStatsYear";
-                cmdStYear.CommandType = CommandType.StoredProcedure;
-                cmdStYear.ExecuteNonQuery();
-
-                //MySqlCommand requete = new MySqlCommand();
-                //requete.Connection = _Connection;
-                //requete.CommandText = "SELECT statsAll, statsDay, statsMonth, statsYear, dayF, monthF, yearF from stats;";
-                //MySqlDataReader readerRequete = requete.ExecuteReader();
-                //MySqlCommand command = connection.CreateCommand();
-                //command.CommandText = "INSERT INTO tb_mitarbeiter (Vorname) VALUES (?name)";
-                //command.Parameters.AddWithValue("?name", mitarbeiter);
-                //connection.Open();
-                //command.ExecuteNonQuery();
+                _Connection = new MySqlConnection("Database=projet;DataSource=" + formLinkServer.serv + ";UserId=admin;Password=" + mdp + ";");
+                _Connection.Open();
 
                 MySqlCommand insDay = _Connection.CreateCommand();
                 insDay.Connection = _Connection;
                 insDay.CommandText = "update stats set dayF = @dayP where statsId=1;";
                 insDay.Parameters.AddWithValue("?dayP", dayP);
-                //_Connection.Open();
-                insDay.ExecuteNonQuery();
 
                 MySqlCommand insMonth = _Connection.CreateCommand();
                 insMonth.Connection = _Connection;
                 insMonth.CommandText = "update stats set monthF = @monthP where statsId=1;";
                 insMonth.Parameters.AddWithValue("?monthP", monthP);
-                //_Connection.Open();
-                insMonth.ExecuteNonQuery();
 
                 MySqlCommand insYear = _Connection.CreateCommand();
                 insYear.Connection = _Connection;
                 insYear.CommandText = "update stats set yearF = @yearP where statsId=1;";
                 insYear.Parameters.AddWithValue("?yearP", yearP);
+
+                MySqlCommand cmdStDay = new MySqlCommand();
+                cmdStDay.Connection = _Connection;
+                cmdStDay.CommandText = "incStatsDay";
+                cmdStDay.CommandType = CommandType.StoredProcedure;
+
+                MySqlCommand cmdStMonth = new MySqlCommand();
+                cmdStMonth.Connection = _Connection;
+                cmdStMonth.CommandText = "incStatsMonth";
+                cmdStMonth.CommandType = CommandType.StoredProcedure;
+
+                MySqlCommand cmdStYear = new MySqlCommand();
+                cmdStYear.Connection = _Connection;
+                cmdStYear.CommandText = "incStatsYear";
+                cmdStYear.CommandType = CommandType.StoredProcedure;
+
+                MySqlCommand resetStDay = new MySqlCommand();
+                resetStDay.Connection = _Connection;
+                resetStDay.CommandText = "resetStatsDay";
+                resetStDay.CommandType = CommandType.StoredProcedure;
+
+                MySqlCommand resetStMonth = new MySqlCommand();
+                resetStMonth.Connection = _Connection;
+                resetStMonth.CommandText = "resetStatsMonth";
+                resetStMonth.CommandType = CommandType.StoredProcedure;
+
+                MySqlCommand resetStYear = new MySqlCommand();
+                resetStYear.Connection = _Connection;
+                resetStYear.CommandText = "resetStatsYear";
+                resetStYear.CommandType = CommandType.StoredProcedure;
+
+                MySqlCommand requete = new MySqlCommand();
+                requete.Connection = _Connection;
+                requete.CommandText = "SELECT dayF as jourBD, monthF as moisBD, yearF as anneeBD from stats where statsId = '1'";
                 //_Connection.Open();
-                insYear.ExecuteNonQuery();
+                MySqlDataReader readerRequete = requete.ExecuteReader();
 
-                //MySqlCommand command = _Connection.CreateCommand();
+                ArrayList tabJour = new ArrayList();
+                ArrayList tabMois = new ArrayList();
+                ArrayList tabAnnee = new ArrayList();
 
-                //command.CommandText = @"INSERT INTO 'stats'('dayF') VALUES ("+dayP+")";
-                ////command.Parameters.AddWithValue("@dayP", dayP);
-                //_Connection.Open();
-                //command.ExecuteQuery();
-
-
-
-
-                //MySqlCommand insMonth = new MySqlCommand();
-                //insMonth.Connection = _Connection;
-                //insMonth.CommandText = "INSERT INTO stats(monthF) values(@monthC)";
-                //insMonth.ExecuteReader();
-
-                //MySqlCommand insYear = new MySqlCommand();
-                //insYear.Connection = _Connection;
-                //insYear.CommandText = "INSERT INTO stats(yearF) values(@yearC)";
-                //insYear.ExecuteReader();
-
-
-
-
-
-                //requete.CommandText = "SELECT statsAll, statsDay, statsMonth, statsYear, day, month, year from stats;";
-                //requete1.CommandText = "INSERT INTO stats (statsAll, statsDay, statsMonth, statsYear, day, month, year) values (total, cptDay, cptMonth, cptYear, dayP, monthP, yearP)";
-
-
-
-                //MySqlDataReader readerRequete = requete.ExecuteReader();
-
-                /*ArrayList tabStatsAll = new ArrayList();
-                ArrayList tabStatsDay = new ArrayList();
-                ArrayList tabStatsMonth = new ArrayList();
-                ArrayList tabStatsYear = new ArrayList();
-                ArrayList tabDay = new ArrayList();
-                ArrayList tabMonth = new ArrayList();
-                ArrayList tabYear = new ArrayList();
-                */
-
-                /*
                 while (readerRequete.Read())
                 {
-                    tabStatsAll.Add(readerRequete["statsAll"].ToString());
-                    tabStatsDay.Add(readerRequete["statsDay"].ToString());
-                    tabStatsMonth.Add(readerRequete["statsMonth"].ToString());
-                    tabStatsYear.Add(readerRequete["statsYear"].ToString());
-                    tabDay.Add(readerRequete["day"].ToString());
-                    tabMonth.Add(readerRequete["month"].ToString());
-                    tabYear.Add(readerRequete["year"].ToString());
+                    tabJour.Add(readerRequete["jourBD"].ToString());
+                    tabMois.Add(readerRequete["moisBD"].ToString());
+                    tabAnnee.Add(readerRequete["anneeBD"].ToString());
+
+                    int jourBD = Convert.ToInt32(tabJour[0]);
+                    int moisBD = Convert.ToInt32(tabMois[0]);
+                    int anneeBD = Convert.ToInt32(tabAnnee[0]);
+
+                    if(jourBD == 0 || moisBD == 0 || anneeBD == 0)
+                    {
+                        insDay.ExecuteNonQuery();
+                        insMonth.ExecuteNonQuery();
+                        insYear.ExecuteNonQuery();
+                    }
+
+                    if(jourBD == dayP)
+                    {
+                        cmdStDay.ExecuteNonQuery();
+                    }
+                    if(jourBD != dayP || jourBD != 0)
+                    {
+                        insDay.ExecuteNonQuery();
+                        resetStDay.ExecuteNonQuery();
+                    }
+
+                    if (moisBD == monthP)
+                    {
+                        cmdStMonth.ExecuteNonQuery();
+                    }
+                    if (moisBD != monthP || moisBD != 0)
+                    {
+                        insMonth.ExecuteNonQuery();
+                        resetStMonth.ExecuteNonQuery();
+                    }
+
+                    if (anneeBD == yearP)
+                    {
+                        cmdStYear.ExecuteNonQuery();
+                    }
+                    if (anneeBD != yearP || anneeBD != 0)
+                    {
+                        insYear.ExecuteNonQuery();
+                        resetStYear.ExecuteNonQuery();
+                    }
+
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = _Connection;
+                    cmd.CommandText = "incremental";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+
 
                     
-
-                    
-
                 }
-                */
 
+                _Connection.Close();
 
+                MySqlCommand final = new MySqlCommand();
+                final.Connection = _Connection;
+                final.CommandText = "SELECT statsAll, statsDay, statsMonth, statsYear from stats where statsId = '1'";
+                _Connection.Open();
+                MySqlDataReader readerFinal = final.ExecuteReader();
 
+                ArrayList tabAll = new ArrayList();
+                ArrayList tabSjour = new ArrayList();
+                ArrayList tabSmois = new ArrayList();
+                ArrayList tabSannee = new ArrayList();
 
+                while (readerFinal.Read())
+                {
+                    tabSjour.Add(readerRequete["statsDay"].ToString());
+                    tabSmois.Add(readerRequete["statsMonth"].ToString());
+                    tabSannee.Add(readerRequete["statsYear"].ToString());
+                    tabAll.Add(readerRequete["statsAll"].ToString());
+
+                    mLabelAll.Text = tabAll[0].ToString();
+                    mLabelDay.Text = tabSjour[0].ToString();
+                    mLabelMonth.Text = tabSmois[0].ToString();
+                    mLabelYear.Text = tabSannee[0].ToString();
+
+                   
+                }
+                _Connection.Close();
 
 
             }
