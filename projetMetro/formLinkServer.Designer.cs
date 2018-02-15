@@ -34,6 +34,7 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.mLbServ = new MetroFramework.Controls.MetroLabel();
             this.mLinkReturn = new MetroFramework.Controls.MetroLink();
+            this.ipTb = new IPAddressControlLib.IPAddressControl();
             this.SuspendLayout();
             // 
             // btServ
@@ -90,6 +91,21 @@
             this.mLinkReturn.UseSelectable = true;
             this.mLinkReturn.Click += new System.EventHandler(this.mLinkReturn_Click_1);
             // 
+            // ipTb
+            // 
+            this.ipTb.AllowInternalTab = false;
+            this.ipTb.AutoHeight = true;
+            this.ipTb.BackColor = System.Drawing.SystemColors.Window;
+            this.ipTb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ipTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ipTb.Location = new System.Drawing.Point(303, 149);
+            this.ipTb.MinimumSize = new System.Drawing.Size(87, 20);
+            this.ipTb.Name = "ipTb";
+            this.ipTb.ReadOnly = false;
+            this.ipTb.Size = new System.Drawing.Size(87, 20);
+            this.ipTb.TabIndex = 13;
+            this.ipTb.Text = "...";
+            // 
             // formLinkServer
             // 
             this.AcceptButton = this.btServ;
@@ -97,6 +113,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(600, 320);
+            this.Controls.Add(this.ipTb);
             this.Controls.Add(this.mLinkReturn);
             this.Controls.Add(this.mLbServ);
             this.Controls.Add(this.metroLabel2);
@@ -121,5 +138,6 @@
         private MetroFramework.Controls.MetroLabel mLbServ;
         //private IPAddressControlLib.IPAddressControl mTbServ;
         private MetroFramework.Controls.MetroLink mLinkReturn;
+        private IPAddressControlLib.IPAddressControl ipTb;
     }
 }
