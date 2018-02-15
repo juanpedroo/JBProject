@@ -660,6 +660,7 @@ namespace projetMetro
                                 //    //simpleSound.Play();
                                 //}
                                 ////
+                                // oui
                                 if (jour != "Wednesday")
                                 {
 
