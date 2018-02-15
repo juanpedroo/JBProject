@@ -28,11 +28,12 @@ namespace projetMetro
 
         private void formDispEleve_Load(object sender, EventArgs e)
         {
-            server = "localhost";
+            server = formLinkServer.serv;
             database = "projet";
             uid = "admin";
             password = formBeforeAdmin.pass;
             string connectionString;
+
             connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
 

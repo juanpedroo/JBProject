@@ -78,6 +78,7 @@
             this.mBTafficher = new MetroFramework.Controls.MetroButton();
             this.mLabelDate = new MetroFramework.Controls.MetroLabel();
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
+            this.mLbMax = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -627,6 +628,15 @@
             this.metroToolTip1.StyleManager = null;
             this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Default;
             // 
+            // mLbMax
+            // 
+            this.mLbMax.AutoSize = true;
+            this.mLbMax.Location = new System.Drawing.Point(169, 18);
+            this.mLbMax.Name = "mLbMax";
+            this.mLbMax.Size = new System.Drawing.Size(88, 19);
+            this.mLbMax.TabIndex = 50;
+            this.mLbMax.Text = "metroLabel16";
+            // 
             // formUser
             // 
             this.AcceptButton = this.mBTafficher;
@@ -635,6 +645,7 @@
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1098, 714);
+            this.Controls.Add(this.mLbMax);
             this.Controls.Add(this.mLabelDate);
             this.Controls.Add(this.mBTafficher);
             this.Controls.Add(this.mTBine);
@@ -743,5 +754,6 @@
         private MetroFramework.Controls.MetroButton mBTafficher;
         private MetroFramework.Controls.MetroLabel mLabelDate;
         private MetroFramework.Components.MetroToolTip metroToolTip1;
+        private MetroFramework.Controls.MetroLabel mLbMax;
     }
 }

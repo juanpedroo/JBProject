@@ -37,7 +37,7 @@ namespace projetMetro.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\cal")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\SRV-PRONOTE2017\\edt")]
         public string pathCal {
             get {
                 return ((string)(this["pathCal"]));

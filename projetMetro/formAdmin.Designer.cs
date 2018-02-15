@@ -81,11 +81,10 @@
             this.panel1.Controls.Add(this.metroLabel1);
             this.panel1.Controls.Add(this.mTileConvert);
             this.panel1.Controls.Add(this.mTileBarcode);
-            this.panel1.Location = new System.Drawing.Point(198, 112);
+            this.panel1.Location = new System.Drawing.Point(23, 63);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1052, 628);
             this.panel1.TabIndex = 5;
-            
             // 
             // metroTileImport
             // 

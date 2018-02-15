@@ -6,7 +6,7 @@
       <Value Profile="(Default)">C:\pdf</Value>
     </Setting>
     <Setting Name="pathCal" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\cal</Value>
+      <Value Profile="(Default)">\\SRV-PRONOTE2017\edt</Value>
     </Setting>
     <Setting Name="pathServ" Type="System.String" Scope="User">
       <Value Profile="(Default)">localhost</Value>

@@ -85,9 +85,10 @@ namespace projetMetro
             MySqlBulkLoader bl = new MySqlBulkLoader(conn);
             bl.TableName = "eleve";
             bl.FieldTerminator = ";";  //This can be { comma,tab,semi colon, or other character}
-            bl.LineTerminator = "\n"; 
+            bl.LineTerminator = "\n";
             bl.FileName = mTbPath.Text;
-   
+            bl.ConflictOption = MySql.Data.MySqlClient.MySqlBulkLoaderConflictOption.Replace;
+
             mPB.PerformStep();
             try
             {
@@ -99,7 +100,15 @@ namespace projetMetro
                 // Upload data from file
                 int count = bl.Load();
                 mPB.PerformStep();
-                mLViewStatus.Items.Add(count + " lignes ajoutée(s).");
+                if (count > 1200)
+                {
+                    mLViewStatus.Items.Add(count / 2 + " lignes ajoutée(s).");
+                }
+                else
+                {
+                    mLViewStatus.Items.Add(count + " lignes ajoutée(s).");
+                }
+                
 
                 conn.Close();
             }
@@ -107,7 +116,8 @@ namespace projetMetro
             {
                 mLViewStatus.Items.Add(ex.ToString());
                 mPB.BackColor = Color.Red;
-                MessageBox.Show("Erreur !");
+                MessageBox.Show(ex.ToString());
+                //MessageBox.Show("Erreur !");
             }
 
             mPB.PerformStep();

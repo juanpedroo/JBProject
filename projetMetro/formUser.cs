@@ -23,6 +23,7 @@ namespace projetMetro
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             mTBine.Select();
+            
         }
 
         private void formUser_Load(object sender, EventArgs e)
@@ -331,6 +332,10 @@ namespace projetMetro
 
         private void mBTafficher_Click(object sender, EventArgs e)
         {
+            int maxDPaut;
+            int maxExtMat;
+            int maxExtAprem;
+            int maxExt;
             string INE = mTBine.Text;
             MySqlConnection _Connection = null;
             axAcroPDF1.LoadFile("none.pdf");
@@ -484,6 +489,8 @@ namespace projetMetro
                     ///
 
                     DateTime help = DateTime.Now;
+                    string date; //= Convert.ToString(help);
+                    string jour = Convert.ToString(help.DayOfWeek);
                     //DateTime help = new DateTime(2018, 01, 28, 13, 50, 00);
                     try {
                         int i;
@@ -524,7 +531,7 @@ namespace projetMetro
                         }
 
                         ouioui[4] = ouioui[4] + 20;
-                        mTileSortie.Text = Convert.ToString(ouioui[4]);
+                        // mTileSortie.Text = Convert.ToString(ouioui[4]);
 
                         /*
                         if (TimeZoneInfo.Local.IsDaylightSavingTime(help))
@@ -546,10 +553,7 @@ namespace projetMetro
                             ouioui[4] = 0;
                         }
                         //lbTailleTab.Text = Convert.ToString(ouioui[4]);
-                        for (int k = 0; k < 5; k++)
-                        {
-                            //lboxTest.Items.Add(ouioui[k]);
-                        }
+                        date = Convert.ToString(ouioui[4]);
 
                         string dtStart = "DTSTART:" + ouioui[2].ToString("D4") + ouioui[1].ToString("D2") + ouioui[0].ToString("D2") + "T" + ouioui[3].ToString("D2") + 0.ToString("D2") + "00Z";
 
@@ -629,10 +633,14 @@ namespace projetMetro
 
                         mTileSortie.Text = "";
                         //lbCpt.Text = Convert.ToString(cpt);
+                        maxDPaut = 10; // DP Autorise
+                        maxExtMat = 12; // EXT
+                        maxExtAprem = 17;
+                        maxExt = 8;
                         for (int z = 0; z < cpt; z++)
                         {
-
-                            string fax = subDtStartdate;
+                            mLbMax.Text = jour;
+                            //string fax = subDtStartdate;
                             //= tabDt[i, 0].Substring(8, 8);
 
                             //MessageBox.Show(Convert.ToString(i));
@@ -645,11 +653,139 @@ namespace projetMetro
 
                             if (subDtStartdate == tabDt[z, 0].Substring(8, 8))
                             {
-                                if ((Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) <= Convert.ToInt32(dtStart.Substring(17, 2))) && (Convert.ToInt32(dtStart.Substring(17, 2)) < Convert.ToInt32(tabDt[z, 1].Substring(15, 2))))
+                                //if ((Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) <= Convert.ToInt32(dtStart.Substring(17, 2))) && (Convert.ToInt32(dtStart.Substring(17, 2)) < Convert.ToInt32(tabDt[z, 1].Substring(15, 2))))
+                                //{
+                                //    mTileSortie.Text = "Non Autorisé";
+                                //    //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\743.wav");
+                                //    //simpleSound.Play();
+                                //}
+                                ////
+                                if (jour != "Wednesday")
                                 {
-                                    mTileSortie.Text = "Non Autorisé";
-                                    //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\743.wav");
-                                    //simpleSound.Play();
+
+
+                                    switch (reductionRegime(tabRegime, tabAutorisationSortie))
+                                    {
+                                        case ("DP AUTORISE"):
+                                            if (Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) > maxDPaut)
+                                            {
+                                                mLbMax.Text = Convert.ToString(maxDPaut);
+                                                maxDPaut = Convert.ToInt32(tabDt[z, 0].Substring(17, 2));
+                                            }
+                                            if (maxDPaut > Convert.ToInt32(date) && reductionRegime(tabRegime, tabAutorisationSortie) == "DP AUTORISE")
+                                            {
+                                                mTileSortie.Text = "Non Autorisé";
+                                            }
+                                            else
+                                            {
+                                                mTileSortie.Text = "Autorisé";
+                                            }
+                                            break;
+                                        case ("Externe"):
+                                            if (Convert.ToInt32(date) < 13)
+                                            {
+                                                // Matin
+                                                if (Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < Convert.ToInt32(date) && Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < maxExtMat)
+                                                {
+                                                    mTileSortie.Text = "Non Autorisé";
+                                                }
+                                                else
+                                                {
+                                                    mTileSortie.Text = "Autorisé";
+                                                }
+                                            }
+                                            else if (Convert.ToInt32(date) > 13)
+                                            {
+                                                // Apres-Midi
+                                                if (Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) > maxExt)
+                                                {
+                                                    mLbMax.Text = Convert.ToString(maxExt);
+                                                    maxExt = Convert.ToInt32(tabDt[z, 0].Substring(17, 2));
+                                                }
+                                                if (maxExt > Convert.ToInt32(date) && reductionRegime(tabRegime, tabAutorisationSortie) == "Externe")
+                                                {
+                                                    mTileSortie.Text = "Non Autorisé";
+                                                }
+                                                else
+                                                {
+                                                    mTileSortie.Text = "Autorisé";
+                                                }
+                                            }
+                                            break;
+                                        case ("DP NON AUTORISE"):
+                                            if (Convert.ToInt32(date) < 17)
+                                            {
+                                                mTileSortie.Text = "Non Autorisé";
+                                            }
+                                            else
+                                            {
+                                                mTileSortie.Text = "Autorisé";
+                                            }
+                                            break;
+                                    }
+                                }
+                                // Le mercredi
+                                else
+                                {
+                                    switch (reductionRegime(tabRegime, tabAutorisationSortie))
+                                    {
+                                        case ("DP AUTORISE"):
+                                            if (Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) > maxDPaut)
+                                            {
+                                                mLbMax.Text = Convert.ToString(maxDPaut);
+                                                maxDPaut = Convert.ToInt32(tabDt[z, 0].Substring(17, 2));
+                                            }
+                                            if (maxDPaut > Convert.ToInt32(date) && reductionRegime(tabRegime, tabAutorisationSortie) == "DP AUTORISE")
+                                            {
+                                                mTileSortie.Text = "Non Autorisé";
+                                            }
+                                            else
+                                            {
+                                                mTileSortie.Text = "Autorisé";
+                                            }
+                                            break;
+                                        case ("Externe"):
+                                            if (Convert.ToInt32(date) < 13)
+                                            {
+                                                // Matin
+                                                if (Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < Convert.ToInt32(date) && Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < maxExtMat)
+                                                {
+                                                    mTileSortie.Text = "Non Autorisé";
+                                                }
+                                                else
+                                                {
+                                                    mTileSortie.Text = "Autorisé";
+                                                }
+                                            }
+                                            else if (Convert.ToInt32(date) > 13)
+                                            {
+                                                // Apres-Midi
+                                                if (Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) > maxExt)
+                                                {
+                                                    mLbMax.Text = Convert.ToString(maxExt);
+                                                    maxExt = Convert.ToInt32(tabDt[z, 0].Substring(17, 2));
+                                                }
+                                                if (maxExt > Convert.ToInt32(date) && reductionRegime(tabRegime, tabAutorisationSortie) == "Externe")
+                                                {
+                                                    mTileSortie.Text = "Non Autorisé";
+                                                }
+                                                else
+                                                {
+                                                    mTileSortie.Text = "Autorisé";
+                                                }
+                                            }
+                                            break;
+                                        case ("DP NON AUTORISE"):
+                                            if (Convert.ToInt32(date) < 17)
+                                            {
+                                                mTileSortie.Text = "Non Autorisé";
+                                            }
+                                            else
+                                            {
+                                                mTileSortie.Text = "Autorisé";
+                                            }
+                                            break;
+                                    }
                                 }
                             }
 
