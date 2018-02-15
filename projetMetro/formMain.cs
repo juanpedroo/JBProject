@@ -39,7 +39,7 @@ namespace projetMetro
         private void mTileUser_Click(object sender, EventArgs e)
         {
             MySqlConnection _Connection = new MySqlConnection();
-            string _ConnectionString = "Database=projet;DataSource=localhost;UserId=user;Password=";
+            string _ConnectionString = "Database=projet;DataSource=10.11.21.189;UserId=user;Password=";
             _Connection.ConnectionString = _ConnectionString;
 
             try
@@ -56,6 +56,7 @@ namespace projetMetro
             formUser fUser = new formUser();
             fUser.Show();
             this.Visible = false;
+            fUser.Activate();
             ///this.Close();
         }
 

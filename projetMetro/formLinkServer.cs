@@ -27,7 +27,8 @@ namespace projetMetro
 
         private void btServ_Click(object sender, EventArgs e)
         {
-            serv = mTbServ.Text;
+            serv = "10.11.21.189";
+            //serv = mTbServ.Text;
             mLbServ.Text = serv;
 
         }
@@ -40,7 +41,7 @@ namespace projetMetro
 
         private void formLinkServer_Load(object sender, EventArgs e)
         {
-            mTbServ.Select();
+            //mTbServ.Select();
         }
 
         private void mLinkReturn_Click_1(object sender, EventArgs e)

@@ -20,7 +20,10 @@ namespace projetMetro
     {
         public formUser()
         {
+
             InitializeComponent();
+            MetroMessageBox.Show(this, "Passage en mode scanning \nVeuillez présenter les cartes !", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            
             this.WindowState = FormWindowState.Maximized;
             mTBine.Select();
             
@@ -28,10 +31,13 @@ namespace projetMetro
 
         private void formUser_Load(object sender, EventArgs e)
         {
+            
             mTBine.Select();
-            formPath.cal = Properties.Settings.Default.pathCal;
+            this.Focus();            formPath.cal = Properties.Settings.Default.pathCal;
             formPath.pdf = Properties.Settings.Default.pathPDF;
             formLinkServer.serv = Properties.Settings.Default.pathServ;
+            
+            
         }
 
         private void Timer_Tick(object sender, EventArgs e)

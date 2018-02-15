@@ -53,6 +53,7 @@
             // 
             // mLinkReturn
             // 
+            this.mLinkReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mLinkReturn.Image = ((System.Drawing.Image)(resources.GetObject("mLinkReturn.Image")));
             this.mLinkReturn.ImageSize = 32;
             this.mLinkReturn.Location = new System.Drawing.Point(1, 7);
@@ -90,6 +91,7 @@
             // metroTileImport
             // 
             this.metroTileImport.ActiveControl = null;
+            this.metroTileImport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.metroTileImport.Location = new System.Drawing.Point(572, 86);
             this.metroTileImport.Name = "metroTileImport";
             this.metroTileImport.Size = new System.Drawing.Size(130, 130);
@@ -104,6 +106,7 @@
             // mTileStatus
             // 
             this.mTileStatus.ActiveControl = null;
+            this.mTileStatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileStatus.Location = new System.Drawing.Point(708, 387);
             this.mTileStatus.Name = "mTileStatus";
             this.mTileStatus.Size = new System.Drawing.Size(130, 130);
@@ -118,6 +121,7 @@
             // mTileStats
             // 
             this.mTileStats.ActiveControl = null;
+            this.mTileStats.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileStats.Location = new System.Drawing.Point(572, 387);
             this.mTileStats.Name = "mTileStats";
             this.mTileStats.Size = new System.Drawing.Size(130, 130);
@@ -132,6 +136,7 @@
             // mTileManualAdmin
             // 
             this.mTileManualAdmin.ActiveControl = null;
+            this.mTileManualAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileManualAdmin.Location = new System.Drawing.Point(174, 86);
             this.mTileManualAdmin.Name = "mTileManualAdmin";
             this.mTileManualAdmin.Size = new System.Drawing.Size(130, 130);
@@ -147,6 +152,7 @@
             // mTileLinkServ
             // 
             this.mTileLinkServ.ActiveControl = null;
+            this.mTileLinkServ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileLinkServ.Location = new System.Drawing.Point(310, 86);
             this.mTileLinkServ.Name = "mTileLinkServ";
             this.mTileLinkServ.Size = new System.Drawing.Size(236, 130);
@@ -161,6 +167,7 @@
             // mTilePath
             // 
             this.mTilePath.ActiveControl = null;
+            this.mTilePath.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTilePath.Location = new System.Drawing.Point(174, 222);
             this.mTilePath.Name = "mTilePath";
             this.mTilePath.Size = new System.Drawing.Size(236, 130);
@@ -175,6 +182,7 @@
             // mTileActionBD
             // 
             this.mTileActionBD.ActiveControl = null;
+            this.mTileActionBD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileActionBD.Location = new System.Drawing.Point(416, 222);
             this.mTileActionBD.Name = "mTileActionBD";
             this.mTileActionBD.Size = new System.Drawing.Size(130, 130);
@@ -184,10 +192,12 @@
             this.mTileActionBD.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mTileActionBD.UseSelectable = true;
             this.mTileActionBD.UseTileImage = true;
+            this.mTileActionBD.Click += new System.EventHandler(this.mTileActionBD_Click);
             // 
             // mTileDispEleve
             // 
             this.mTileDispEleve.ActiveControl = null;
+            this.mTileDispEleve.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileDispEleve.Location = new System.Drawing.Point(572, 222);
             this.mTileDispEleve.Name = "mTileDispEleve";
             this.mTileDispEleve.Size = new System.Drawing.Size(130, 130);
@@ -202,6 +212,7 @@
             // mTileDelEleve
             // 
             this.mTileDelEleve.ActiveControl = null;
+            this.mTileDelEleve.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileDelEleve.Location = new System.Drawing.Point(708, 86);
             this.mTileDelEleve.Name = "mTileDelEleve";
             this.mTileDelEleve.Size = new System.Drawing.Size(130, 130);
@@ -216,6 +227,7 @@
             // mTileAddEleve
             // 
             this.mTileAddEleve.ActiveControl = null;
+            this.mTileAddEleve.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileAddEleve.Location = new System.Drawing.Point(708, 222);
             this.mTileAddEleve.Name = "mTileAddEleve";
             this.mTileAddEleve.Size = new System.Drawing.Size(130, 130);
@@ -262,6 +274,7 @@
             // mTileConvert
             // 
             this.mTileConvert.ActiveControl = null;
+            this.mTileConvert.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileConvert.Location = new System.Drawing.Point(310, 387);
             this.mTileConvert.Name = "mTileConvert";
             this.mTileConvert.Size = new System.Drawing.Size(236, 130);
@@ -276,6 +289,7 @@
             // mTileBarcode
             // 
             this.mTileBarcode.ActiveControl = null;
+            this.mTileBarcode.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileBarcode.Location = new System.Drawing.Point(174, 387);
             this.mTileBarcode.Name = "mTileBarcode";
             this.mTileBarcode.Size = new System.Drawing.Size(130, 130);

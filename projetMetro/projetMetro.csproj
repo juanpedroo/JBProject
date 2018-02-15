@@ -59,6 +59,9 @@
   <PropertyGroup>
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>projetMetro.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="IPAddressControlLib">
       <HintPath>..\..\..\..\Desktop\IPAddressControlLib.dll</HintPath>
@@ -124,23 +127,11 @@
     <Compile Include="formAdminManual.Designer.cs">
       <DependentUpon>formAdminManual.cs</DependentUpon>
     </Compile>
-    <Compile Include="formBarcode.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formBarcode.Designer.cs">
-      <DependentUpon>formBarcode.cs</DependentUpon>
-    </Compile>
     <Compile Include="formBeforeAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formBeforeAdmin.Designer.cs">
       <DependentUpon>formBeforeAdmin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formConvert.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formConvert.Designer.cs">
-      <DependentUpon>formConvert.cs</DependentUpon>
     </Compile>
     <Compile Include="formDelEleve.cs">
       <SubType>Form</SubType>
@@ -184,6 +175,12 @@
     <Compile Include="formPath.Designer.cs">
       <DependentUpon>formPath.cs</DependentUpon>
     </Compile>
+    <Compile Include="formPurge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPurge.Designer.cs">
+      <DependentUpon>formPurge.cs</DependentUpon>
+    </Compile>
     <Compile Include="formStats.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,14 +219,8 @@
     <EmbeddedResource Include="formAdminManual.resx">
       <DependentUpon>formAdminManual.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formBarcode.resx">
-      <DependentUpon>formBarcode.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="formBeforeAdmin.resx">
       <DependentUpon>formBeforeAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formConvert.resx">
-      <DependentUpon>formConvert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formDelEleve.resx">
       <DependentUpon>formDelEleve.cs</DependentUpon>
@@ -251,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formPath.resx">
       <DependentUpon>formPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formPurge.resx">
+      <DependentUpon>formPurge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formStats.resx">
       <DependentUpon>formStats.cs</DependentUpon>

@@ -39,6 +39,7 @@
             // 
             this.mTileAdmin.ActiveControl = null;
             this.mTileAdmin.BackColor = System.Drawing.Color.DodgerBlue;
+            this.mTileAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileAdmin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.mTileAdmin.Location = new System.Drawing.Point(65, 64);
             this.mTileAdmin.Margin = new System.Windows.Forms.Padding(4);
@@ -60,6 +61,7 @@
             // 
             this.mTileUser.ActiveControl = null;
             this.mTileUser.BackColor = System.Drawing.Color.DodgerBlue;
+            this.mTileUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.mTileUser.Location = new System.Drawing.Point(203, 64);
             this.mTileUser.Margin = new System.Windows.Forms.Padding(4);
@@ -81,6 +83,7 @@
             // 
             this.mTileHelp.ActiveControl = null;
             this.mTileHelp.BackColor = System.Drawing.Color.DodgerBlue;
+            this.mTileHelp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileHelp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.mTileHelp.Location = new System.Drawing.Point(65, 202);
             this.mTileHelp.Margin = new System.Windows.Forms.Padding(4);
@@ -102,6 +105,7 @@
             // 
             this.mTileAbout.ActiveControl = null;
             this.mTileAbout.BackColor = System.Drawing.Color.DodgerBlue;
+            this.mTileAbout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mTileAbout.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.mTileAbout.Location = new System.Drawing.Point(203, 202);
             this.mTileAbout.Margin = new System.Windows.Forms.Padding(4);

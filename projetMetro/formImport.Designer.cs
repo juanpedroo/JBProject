@@ -40,6 +40,7 @@
             // 
             // mBtnImportPath
             // 
+            this.mBtnImportPath.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mBtnImportPath.Location = new System.Drawing.Point(425, 75);
             this.mBtnImportPath.Name = "mBtnImportPath";
             this.mBtnImportPath.Size = new System.Drawing.Size(17, 23);
@@ -81,6 +82,7 @@
             // mBtImport
             // 
             this.mBtImport.BackColor = System.Drawing.Color.DodgerBlue;
+            this.mBtImport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mBtImport.ForeColor = System.Drawing.Color.White;
             this.mBtImport.Location = new System.Drawing.Point(464, 163);
             this.mBtImport.Name = "mBtImport";
@@ -117,6 +119,7 @@
             // 
             // mLinkReturn
             // 
+            this.mLinkReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mLinkReturn.Image = ((System.Drawing.Image)(resources.GetObject("mLinkReturn.Image")));
             this.mLinkReturn.ImageSize = 32;
             this.mLinkReturn.Location = new System.Drawing.Point(1, 7);

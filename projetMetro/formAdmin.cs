@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,8 +88,9 @@ namespace projetMetro
 
         private void formAdmin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            formMain fMain = new formMain();
-            fMain.Show();
+            //formMain fMain = new formMain();
+            //fMain.Show();
+            this.Close();
         }
 
         private void mTileManualAdmin_Click(object sender, EventArgs e)
@@ -96,16 +99,29 @@ namespace projetMetro
             fAManual.ShowDialog();
         }
 
-          private void mTileBarcode_Click(object sender, EventArgs e)
+        private void mTileBarcode_Click(object sender, EventArgs e)
         {
-            formBarcode fBarcode = new formBarcode();
-            fBarcode.ShowDialog();
+                byte[] bytes = Properties.Resources.ManuelAdmin;
+            using (FileStream fs = File.Create("Manuel.pdf"))
+            {
+                fs.Write(bytes, 0, bytes.Length);
+            }
+            Process.Start("Manuel.pdf");
+
+            Process barcode = Process.Start("");
+
         }
 
         private void mTileConvert_Click(object sender, EventArgs e)
         {
-            formConvert fConvert = new formConvert();
-            fConvert.ShowDialog();
+            byte[] bytes = Properties.Resources.ManuelAdmin;
+            using (FileStream fs = File.Create("Aide.pdf"))
+            {
+                fs.Write(bytes, 0, bytes.Length);
+            }
+            Process.Start("Aide.pdf");
+
+          
         }
 
         private void mTileStats_Click(object sender, EventArgs e)
@@ -135,6 +151,12 @@ namespace projetMetro
         private void mTileManualAdmin_MouseHover(object sender, EventArgs e)
         {
             metroToolTip1.Show(mTileManualAdmin.Text, mTileManualAdmin);
+        }
+
+        private void mTileActionBD_Click(object sender, EventArgs e)
+        {
+            formPurge fPurge = new formPurge();
+            fPurge.ShowDialog();
         }
     }
 }

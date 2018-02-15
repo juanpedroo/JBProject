@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formStats));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mLinkReturn = new MetroFramework.Controls.MetroLink();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.mLabelScanEleve = new MetroFramework.Controls.MetroLabel();
@@ -40,13 +37,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.BTsimulation = new System.Windows.Forms.Button();
-            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.mLabelAll = new MetroFramework.Controls.MetroLabel();
+            this.mLabelDay = new MetroFramework.Controls.MetroLabel();
+            this.mLabelMonth = new MetroFramework.Controls.MetroLabel();
+            this.mLabelYear = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // mLinkReturn
             // 
+            this.mLinkReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mLinkReturn.Image = ((System.Drawing.Image)(resources.GetObject("mLinkReturn.Image")));
             this.mLinkReturn.ImageSize = 32;
             this.mLinkReturn.Location = new System.Drawing.Point(1, 7);
@@ -111,7 +110,7 @@
             // 
             // BTsimulation
             // 
-            this.BTsimulation.Location = new System.Drawing.Point(214, 294);
+            this.BTsimulation.Location = new System.Drawing.Point(160, 308);
             this.BTsimulation.Name = "BTsimulation";
             this.BTsimulation.Size = new System.Drawing.Size(115, 59);
             this.BTsimulation.TabIndex = 11;
@@ -119,31 +118,41 @@
             this.BTsimulation.UseVisualStyleBackColor = true;
             this.BTsimulation.Click += new System.EventHandler(this.BTsimulation_Click);
             // 
-            // metroDateTime1
+            // mLabelAll
             // 
-            this.metroDateTime1.Location = new System.Drawing.Point(184, 377);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(115, 29);
-            this.metroDateTime1.TabIndex = 13;
+            this.mLabelAll.AutoSize = true;
+            this.mLabelAll.Location = new System.Drawing.Point(565, 109);
+            this.mLabelAll.Name = "mLabelAll";
+            this.mLabelAll.Size = new System.Drawing.Size(21, 19);
+            this.mLabelAll.TabIndex = 12;
+            this.mLabelAll.Text = "__";
             // 
-            // chart1
+            // mLabelDay
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(366, 7);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(376, 388);
-            this.chart1.TabIndex = 14;
-            this.chart1.Text = "chart1";
+            this.mLabelDay.AutoSize = true;
+            this.mLabelDay.Location = new System.Drawing.Point(565, 141);
+            this.mLabelDay.Name = "mLabelDay";
+            this.mLabelDay.Size = new System.Drawing.Size(21, 19);
+            this.mLabelDay.TabIndex = 13;
+            this.mLabelDay.Text = "__";
+            // 
+            // mLabelMonth
+            // 
+            this.mLabelMonth.AutoSize = true;
+            this.mLabelMonth.Location = new System.Drawing.Point(565, 181);
+            this.mLabelMonth.Name = "mLabelMonth";
+            this.mLabelMonth.Size = new System.Drawing.Size(21, 19);
+            this.mLabelMonth.TabIndex = 14;
+            this.mLabelMonth.Text = "__";
+            // 
+            // mLabelYear
+            // 
+            this.mLabelYear.AutoSize = true;
+            this.mLabelYear.Location = new System.Drawing.Point(565, 219);
+            this.mLabelYear.Name = "mLabelYear";
+            this.mLabelYear.Size = new System.Drawing.Size(21, 19);
+            this.mLabelYear.TabIndex = 15;
+            this.mLabelYear.Text = "__";
             // 
             // formStats
             // 
@@ -151,8 +160,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(765, 465);
-            this.Controls.Add(this.chart1);
-            this.Controls.Add(this.metroDateTime1);
+            this.Controls.Add(this.mLabelYear);
+            this.Controls.Add(this.mLabelMonth);
+            this.Controls.Add(this.mLabelDay);
+            this.Controls.Add(this.mLabelAll);
             this.Controls.Add(this.BTsimulation);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -167,7 +178,6 @@
             this.Name = "formStats";
             this.Resizable = false;
             this.Load += new System.EventHandler(this.formStats_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,7 +193,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BTsimulation;
-        private MetroFramework.Controls.MetroDateTime metroDateTime1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private MetroFramework.Controls.MetroLabel mLabelAll;
+        private MetroFramework.Controls.MetroLabel mLabelDay;
+        private MetroFramework.Controls.MetroLabel mLabelMonth;
+        private MetroFramework.Controls.MetroLabel mLabelYear;
     }
 }
