@@ -669,9 +669,7 @@ namespace projetMetro
                                 // oui
                                 if (jour != "Wednesday")
                                 {
-
-
-                                    switch (reductionRegime(tabRegime, tabAutorisationSortie))
+                                    switch (regimeReduit)
                                     {
                                         case ("DP AUTORISE"):
                                             if (Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) > maxDPaut)
@@ -679,7 +677,7 @@ namespace projetMetro
                                                 mLbMax.Text = Convert.ToString(maxDPaut);
                                                 maxDPaut = Convert.ToInt32(tabDt[z, 0].Substring(17, 2));
                                             }
-                                            if (maxDPaut > Convert.ToInt32(date) && reductionRegime(tabRegime, tabAutorisationSortie) == "DP AUTORISE")
+                                            if (maxDPaut > Convert.ToInt32(date))
                                             {
                                                 mTileSortie.Text = "Non Autorisé";
                                             }
@@ -688,11 +686,11 @@ namespace projetMetro
                                                 mTileSortie.Text = "Autorisé";
                                             }
                                             break;
-                                        case ("Externe"):
+                                        case ("EXTERNE"):
                                             if (Convert.ToInt32(date) < 13)
                                             {
                                                 // Matin
-                                                if (Convert.ToInt32(tabDt[z, 1].Substring(15, 2)) < Convert.ToInt32(date) && Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < maxExtMat)
+                                                if (Convert.ToInt32(tabDt[z, 1].Substring(15, 2)) >= Convert.ToInt32(date) && Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < 13)
                                                 {
                                                     mTileSortie.Text = "Non Autorisé";
                                                 }
@@ -701,15 +699,16 @@ namespace projetMetro
                                                     mTileSortie.Text = "Autorisé";
                                                 }
                                             }
-                                            else if (Convert.ToInt32(date) > 13)
+                                            if (Convert.ToInt32(date) > 13)
                                             {
                                                 // Apres-Midi
-                                                if (Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) > maxExt)
+                                                if (Convert.ToInt32(tabDt[z, 1].Substring(15, 2)) > maxExt)
                                                 {
-                                                    mLbMax.Text = Convert.ToString(maxExt);
-                                                    maxExt = Convert.ToInt32(tabDt[z, 0].Substring(17, 2));
+                                                    //mLbMax.Text = Convert.ToString(maxExt);
+                                                    maxExt = Convert.ToInt32(tabDt[z, 1].Substring(17, 2));
+                                                    maxExt = 18;
                                                 }
-                                                if (maxExt > Convert.ToInt32(date) && reductionRegime(tabRegime, tabAutorisationSortie) == "Externe")
+                                                if (maxExt > Convert.ToInt32(date))
                                                 {
                                                     mTileSortie.Text = "Non Autorisé";
                                                 }
@@ -731,18 +730,15 @@ namespace projetMetro
                                             break;
                                     }
                                 }
+
+
                                 // Le mercredi
-                                else
+                                if (jour == "Wednesday")
                                 {
-                                    switch (reductionRegime(tabRegime, tabAutorisationSortie))
+                                    switch (regimeReduit)
                                     {
                                         case ("DP AUTORISE"):
-                                            if (Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) > maxDPaut)
-                                            {
-                                                mLbMax.Text = Convert.ToString(maxDPaut);
-                                                maxDPaut = Convert.ToInt32(tabDt[z, 0].Substring(17, 2));
-                                            }
-                                            if (maxDPaut > Convert.ToInt32(date) && reductionRegime(tabRegime, tabAutorisationSortie) == "DP AUTORISE")
+                                            if (Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) >= Convert.ToInt32(date) && Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < 13)
                                             {
                                                 mTileSortie.Text = "Non Autorisé";
                                             }
@@ -751,28 +747,11 @@ namespace projetMetro
                                                 mTileSortie.Text = "Autorisé";
                                             }
                                             break;
-                                        case ("Externe"):
+                                        case ("EXTERNE"):
                                             if (Convert.ToInt32(date) < 13)
                                             {
                                                 // Matin
-                                                if (Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < Convert.ToInt32(date) && Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < maxExtMat)
-                                                {
-                                                    mTileSortie.Text = "Non Autorisé";
-                                                }
-                                                else
-                                                {
-                                                    mTileSortie.Text = "Autorisé";
-                                                }
-                                            }
-                                            else if (Convert.ToInt32(date) > 13)
-                                            {
-                                                // Apres-Midi
-                                                if (Convert.ToInt32(tabDt[z, 0].Substring(17, 2)) > maxExt)
-                                                {
-                                                    mLbMax.Text = Convert.ToString(maxExt);
-                                                    maxExt = Convert.ToInt32(tabDt[z, 0].Substring(17, 2));
-                                                }
-                                                if (maxExt > Convert.ToInt32(date) && reductionRegime(tabRegime, tabAutorisationSortie) == "Externe")
+                                                if (Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) >= Convert.ToInt32(date) && Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < 13)
                                                 {
                                                     mTileSortie.Text = "Non Autorisé";
                                                 }
@@ -783,7 +762,7 @@ namespace projetMetro
                                             }
                                             break;
                                         case ("DP NON AUTORISE"):
-                                            if (Convert.ToInt32(date) < 17)
+                                            if (Convert.ToInt32(date) < 12)
                                             {
                                                 mTileSortie.Text = "Non Autorisé";
                                             }
@@ -797,12 +776,12 @@ namespace projetMetro
                             }
 
                         }
-                        if (mTileSortie.Text == "")
-                        {
-                            mTileSortie.Text = "Autorisé";
-                            //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\1025.wav");
-                            //simpleSound.Play();
-                        }
+                        //if (mTileSortie.Text == "")
+                        //{
+                        //    mTileSortie.Text = "Problème avec l'application";
+                        //    //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Baptiste\Desktop\Ical.net test\1025.wav");
+                        //    //simpleSound.Play();
+                        //}
 
                         if (mTileSortie.Text == "Non Autorisé")
                         {

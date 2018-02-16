@@ -28,7 +28,7 @@ namespace projetMetro
         private void btServ_Click(object sender, EventArgs e)
         {
             serv = "10.11.21.189";
-            //serv = mTbServ.Text;
+            serv = ipTb.Text;
             mLbServ.Text = serv;
 
         }
