@@ -49,7 +49,7 @@ namespace projetMetro
                 label2.Text = Convert.ToString(monthP);
                 label3.Text = Convert.ToString(yearP);
 
-                _Connection = new MySqlConnection("Database=projet;DataSource=" + formLinkServer.serv + ";UserId=admin;Password=" + mdp + ";");
+                _Connection = new MySqlConnection("Integrated Security=SSPI" + "MultipleActiveResultSets=True;Database =projet;DataSource=" + formLinkServer.serv + ";UserId=admin;Password=" + mdp + ";");
                 _Connection.Open();
 
                 MySqlCommand insDay = _Connection.CreateCommand();
