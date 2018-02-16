@@ -334,7 +334,7 @@ namespace projetMetro
         }
 
         //public ArrayList lesEleves = new ArrayList();
-        
+        //string mdp = formBeforeAdmin.pass;
 
         private void mBTafficher_Click(object sender, EventArgs e)
         {
@@ -559,7 +559,7 @@ namespace projetMetro
                             ouioui[4] = 0;
                         }
                         //lbTailleTab.Text = Convert.ToString(ouioui[4]);
-                        date = Convert.ToString(ouioui[4]);
+                        date = Convert.ToString(ouioui[3]);
 
                         string dtStart = "DTSTART:" + ouioui[2].ToString("D4") + ouioui[1].ToString("D2") + ouioui[0].ToString("D2") + "T" + ouioui[3].ToString("D2") + 0.ToString("D2") + "00Z";
 
@@ -692,7 +692,7 @@ namespace projetMetro
                                             if (Convert.ToInt32(date) < 13)
                                             {
                                                 // Matin
-                                                if (Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < Convert.ToInt32(date) && Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < maxExtMat)
+                                                if (Convert.ToInt32(tabDt[z, 1].Substring(15, 2)) < Convert.ToInt32(date) && Convert.ToInt32(tabDt[z, 1].Substring(17, 1)) < maxExtMat)
                                                 {
                                                     mTileSortie.Text = "Non Autorisé";
                                                 }
@@ -831,7 +831,187 @@ namespace projetMetro
                 MetroMessageBox.Show(this, "Problème de liaison avec la base de données \nVeuillez contacter l'administrateur !", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _Connection.Close();
             }
-        }
+
+            
+            //MySqlConnection _Connection = null;
+
+            try
+            {
+                string dateToday = Convert.ToString(DateTime.Today);
+                //string dateTest = "17/04/2019";
+                //labelDate.Text = dateToday;
+                int dayP = Convert.ToInt32(dateToday.Substring(0, 2));
+                int monthP = Convert.ToInt32(dateToday.Substring(3, 2));
+                int yearP = Convert.ToInt32(dateToday.Substring(6, 4));
+
+                _Connection = new MySqlConnection("Database=projet;DataSource=" + formLinkServer.serv + ";UserId=admin;Password=fabralex;");
+
+                MySqlCommand insDay = _Connection.CreateCommand();
+                insDay.Connection = _Connection;
+                insDay.CommandText = "update stats set dayF = @dayP where statsId=1;";
+                insDay.Parameters.AddWithValue("?dayP", dayP);
+
+                MySqlCommand insMonth = _Connection.CreateCommand();
+                insMonth.Connection = _Connection;
+                insMonth.CommandText = "update stats set monthF = @monthP where statsId=1;";
+                insMonth.Parameters.AddWithValue("?monthP", monthP);
+
+                MySqlCommand insYear = _Connection.CreateCommand();
+                insYear.Connection = _Connection;
+                insYear.CommandText = "update stats set yearF = @yearP where statsId=1;";
+                insYear.Parameters.AddWithValue("?yearP", yearP);
+
+                MySqlCommand resetStDay = new MySqlCommand();
+                resetStDay.Connection = _Connection;
+                resetStDay.CommandText = "resetStatsDay";
+                resetStDay.CommandType = CommandType.StoredProcedure;
+
+                MySqlCommand resetStMonth = new MySqlCommand();
+                resetStMonth.Connection = _Connection;
+                resetStMonth.CommandText = "resetStatsMonth";
+                resetStMonth.CommandType = CommandType.StoredProcedure;
+
+                MySqlCommand resetStYear = new MySqlCommand();
+                resetStYear.Connection = _Connection;
+                resetStYear.CommandText = "resetStatsYear";
+                resetStYear.CommandType = CommandType.StoredProcedure;
+
+                MySqlCommand requete = new MySqlCommand();
+                requete.Connection = _Connection;
+                requete.CommandText = "SELECT dayF as jourBD, monthF as moisBD, yearF as anneeBD from stats where statsId = '1'";
+                _Connection.Open();
+                MySqlDataReader readerRequete = requete.ExecuteReader();
+
+                ArrayList tabJour = new ArrayList();
+                ArrayList tabMois = new ArrayList();
+                ArrayList tabAnnee = new ArrayList();
+
+                readerRequete.Read();
+
+                tabJour.Add(readerRequete["jourBD"].ToString());
+                tabMois.Add(readerRequete["moisBD"].ToString());
+                tabAnnee.Add(readerRequete["anneeBD"].ToString());
+
+                int jourBD = Convert.ToInt32(tabJour[0]);
+                int moisBD = Convert.ToInt32(tabMois[0]);
+                int anneeBD = Convert.ToInt32(tabAnnee[0]);
+
+                //label1.Text = Convert.ToString(dayP);
+                //label2.Text = Convert.ToString(monthP);
+                //label3.Text = Convert.ToString(yearP);
+                //label4.Text = Convert.ToString(jourBD);
+                //label5.Text = Convert.ToString(moisBD);
+                //label6.Text = Convert.ToString(anneeBD);
+
+                _Connection.Close();
+
+                if (jourBD == 0 || moisBD == 0 || anneeBD == 0)
+                {
+                    _Connection.Open();
+                    insDay.ExecuteNonQuery();
+                    insMonth.ExecuteNonQuery();
+                    insYear.ExecuteNonQuery();
+                    _Connection.Close();
+                }
+
+                if (jourBD.Equals(dayP) == true)
+                {
+                    MySqlCommand cmdStDay = new MySqlCommand();
+                    cmdStDay.Connection = _Connection;
+                    _Connection.Open();
+                    cmdStDay.CommandText = "incrementalDay";
+                    cmdStDay.CommandType = CommandType.StoredProcedure;
+                    cmdStDay.ExecuteNonQuery();
+                    _Connection.Close();
+                }
+
+                if (jourBD.Equals(dayP) == false)
+                {
+                    _Connection.Open();
+                    insDay.ExecuteNonQuery();
+                    resetStDay.ExecuteNonQuery();
+                    _Connection.Close();
+                }
+
+                if (moisBD.Equals(monthP) == true)
+                {
+                    MySqlCommand cmdStMonth = new MySqlCommand();
+                    cmdStMonth.Connection = _Connection;
+                    _Connection.Open();
+                    cmdStMonth.CommandText = "incrementalMonth";
+                    cmdStMonth.CommandType = CommandType.StoredProcedure;
+                    cmdStMonth.ExecuteNonQuery();
+                    _Connection.Close();
+                }
+
+                if (moisBD != monthP)
+                {
+                    _Connection.Open();
+                    insMonth.ExecuteNonQuery();
+                    resetStMonth.ExecuteNonQuery();
+                    _Connection.Close();
+                }
+
+                if (anneeBD.Equals(yearP) == true)
+                {
+                    MySqlCommand cmdStYear = new MySqlCommand();
+                    cmdStYear.Connection = _Connection;
+                    _Connection.Open();
+                    cmdStYear.CommandText = "incrementalYear";
+                    cmdStYear.CommandType = CommandType.StoredProcedure;
+                    cmdStYear.ExecuteNonQuery();
+                    _Connection.Close();
+                }
+
+                if (anneeBD != yearP)
+                {
+                    _Connection.Open();
+                    insYear.ExecuteNonQuery();
+                    resetStYear.ExecuteNonQuery();
+                    _Connection.Close();
+                }
+
+                _Connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = _Connection;
+                cmd.CommandText = "incremental";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+
+                _Connection.Close();
+
+                MySqlCommand final = new MySqlCommand();
+                final.Connection = _Connection;
+                final.CommandText = "SELECT statsAll, statsDay, statsMonth, statsYear from stats where statsId = '1'";
+                _Connection.Open();
+                MySqlDataReader readerFinal = final.ExecuteReader();
+
+                ArrayList tabAll = new ArrayList();
+                ArrayList tabSjour = new ArrayList();
+                ArrayList tabSmois = new ArrayList();
+                ArrayList tabSannee = new ArrayList();
+
+                readerFinal.Read();
+
+                tabSjour.Add(readerFinal["statsDay"].ToString());
+                tabSmois.Add(readerFinal["statsMonth"].ToString());
+                tabSannee.Add(readerFinal["statsYear"].ToString());
+                tabAll.Add(readerFinal["statsAll"].ToString());
+
+                //mLabelAll.Text = tabAll[0].ToString();
+                //mLabelDay.Text = tabSjour[0].ToString();
+                //mLabelMonth.Text = tabSmois[0].ToString();
+                //mLabelYear.Text = tabSannee[0].ToString();
+
+                _Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                _Connection.Close();
+            }
+        }//
 
         private void mLabelPrenomE_Click(object sender, EventArgs e)
         {

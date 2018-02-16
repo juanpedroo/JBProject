@@ -108,7 +108,7 @@ namespace projetMetro
             }
             Process.Start("Manuel.pdf");
 
-            Process barcode = Process.Start("");
+            //xProcess barcode = Process.Start("");
 
         }
 

@@ -30,17 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formStats));
             this.mLinkReturn = new MetroFramework.Controls.MetroLink();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.mLabelScanEleve = new MetroFramework.Controls.MetroLabel();
-            this.labelDate = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BTsimulation = new System.Windows.Forms.Button();
             this.mLabelAll = new MetroFramework.Controls.MetroLabel();
             this.mLabelDay = new MetroFramework.Controls.MetroLabel();
             this.mLabelMonth = new MetroFramework.Controls.MetroLabel();
             this.mLabelYear = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.mBTreinitialiser = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // mLinkReturn
@@ -55,73 +53,10 @@
             this.mLinkReturn.UseSelectable = true;
             this.mLinkReturn.Click += new System.EventHandler(this.mLinkReturn_Click);
             // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(24, 64);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(164, 19);
-            this.metroLabel1.TabIndex = 5;
-            this.metroLabel1.Text = "Nombre d\'élèves scannés :";
-            // 
-            // mLabelScanEleve
-            // 
-            this.mLabelScanEleve.AutoSize = true;
-            this.mLabelScanEleve.Location = new System.Drawing.Point(195, 63);
-            this.mLabelScanEleve.Name = "mLabelScanEleve";
-            this.mLabelScanEleve.Size = new System.Drawing.Size(0, 0);
-            this.mLabelScanEleve.TabIndex = 6;
-            // 
-            // labelDate
-            // 
-            this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(24, 109);
-            this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(28, 13);
-            this.labelDate.TabIndex = 7;
-            this.labelDate.Text = "date";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 141);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 172);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 204);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "label3";
-            // 
-            // BTsimulation
-            // 
-            this.BTsimulation.Location = new System.Drawing.Point(160, 308);
-            this.BTsimulation.Name = "BTsimulation";
-            this.BTsimulation.Size = new System.Drawing.Size(115, 59);
-            this.BTsimulation.TabIndex = 11;
-            this.BTsimulation.Text = "Simulation";
-            this.BTsimulation.UseVisualStyleBackColor = true;
-            this.BTsimulation.Click += new System.EventHandler(this.BTsimulation_Click);
-            // 
             // mLabelAll
             // 
             this.mLabelAll.AutoSize = true;
-            this.mLabelAll.Location = new System.Drawing.Point(565, 109);
+            this.mLabelAll.Location = new System.Drawing.Point(317, 71);
             this.mLabelAll.Name = "mLabelAll";
             this.mLabelAll.Size = new System.Drawing.Size(21, 19);
             this.mLabelAll.TabIndex = 12;
@@ -130,7 +65,7 @@
             // mLabelDay
             // 
             this.mLabelDay.AutoSize = true;
-            this.mLabelDay.Location = new System.Drawing.Point(565, 141);
+            this.mLabelDay.Location = new System.Drawing.Point(317, 112);
             this.mLabelDay.Name = "mLabelDay";
             this.mLabelDay.Size = new System.Drawing.Size(21, 19);
             this.mLabelDay.TabIndex = 13;
@@ -139,7 +74,7 @@
             // mLabelMonth
             // 
             this.mLabelMonth.AutoSize = true;
-            this.mLabelMonth.Location = new System.Drawing.Point(565, 181);
+            this.mLabelMonth.Location = new System.Drawing.Point(317, 152);
             this.mLabelMonth.Name = "mLabelMonth";
             this.mLabelMonth.Size = new System.Drawing.Size(21, 19);
             this.mLabelMonth.TabIndex = 14;
@@ -148,29 +83,77 @@
             // mLabelYear
             // 
             this.mLabelYear.AutoSize = true;
-            this.mLabelYear.Location = new System.Drawing.Point(565, 219);
+            this.mLabelYear.Location = new System.Drawing.Point(317, 190);
             this.mLabelYear.Name = "mLabelYear";
             this.mLabelYear.Size = new System.Drawing.Size(21, 19);
             this.mLabelYear.TabIndex = 15;
             this.mLabelYear.Text = "__";
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(25, 71);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(258, 19);
+            this.metroLabel1.TabIndex = 16;
+            this.metroLabel1.Text = "Nombre d\'élèves scannés depuis le début :";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(25, 112);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(226, 19);
+            this.metroLabel2.TabIndex = 17;
+            this.metroLabel2.Text = "Nombre d\'élèves scannés aujourd\'hui";
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(23, 152);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(228, 19);
+            this.metroLabel3.TabIndex = 18;
+            this.metroLabel3.Text = "Nombre d\'élèves scannés ce mois-ci :";
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(23, 190);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(235, 19);
+            this.metroLabel4.TabIndex = 19;
+            this.metroLabel4.Text = "Nombre d\'élèves scannés cette année :";
+            // 
+            // mBTreinitialiser
+            // 
+            this.mBTreinitialiser.BackColor = System.Drawing.Color.DodgerBlue;
+            this.mBTreinitialiser.ForeColor = System.Drawing.Color.White;
+            this.mBTreinitialiser.Location = new System.Drawing.Point(377, 263);
+            this.mBTreinitialiser.Name = "mBTreinitialiser";
+            this.mBTreinitialiser.Size = new System.Drawing.Size(105, 23);
+            this.mBTreinitialiser.TabIndex = 20;
+            this.mBTreinitialiser.Text = "Réinitialiser";
+            this.mBTreinitialiser.UseCustomBackColor = true;
+            this.mBTreinitialiser.UseCustomForeColor = true;
+            this.mBTreinitialiser.UseSelectable = true;
+            this.mBTreinitialiser.Click += new System.EventHandler(this.mBTreinitialiser_Click);
             // 
             // formStats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
-            this.ClientSize = new System.Drawing.Size(765, 465);
+            this.ClientSize = new System.Drawing.Size(492, 293);
+            this.Controls.Add(this.mBTreinitialiser);
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.metroLabel3);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.mLabelYear);
             this.Controls.Add(this.mLabelMonth);
             this.Controls.Add(this.mLabelDay);
             this.Controls.Add(this.mLabelAll);
-            this.Controls.Add(this.BTsimulation);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.labelDate);
-            this.Controls.Add(this.mLabelScanEleve);
-            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.mLinkReturn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -186,16 +169,14 @@
         #endregion
 
         private MetroFramework.Controls.MetroLink mLinkReturn;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel mLabelScanEleve;
-        private System.Windows.Forms.Label labelDate;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button BTsimulation;
         private MetroFramework.Controls.MetroLabel mLabelAll;
         private MetroFramework.Controls.MetroLabel mLabelDay;
         private MetroFramework.Controls.MetroLabel mLabelMonth;
         private MetroFramework.Controls.MetroLabel mLabelYear;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroButton mBTreinitialiser;
     }
 }
